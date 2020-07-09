@@ -1,6 +1,5 @@
 {
   "name": "mijn-bier",
-  "homepage": "http://melvinvermeer.github.io/mijnbier",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,7 +14,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "yarn build",
-    "deploy": "gh-pages -d build",
+    "deploy": "firebase deploy",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -33,8 +32,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.1.0"
   }
 }
