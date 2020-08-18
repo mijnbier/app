@@ -3,7 +3,18 @@ import logo from './pub.svg';
 import './App.css';
 import BeerList from './Components/BeerList';
 
-const data = [{merk:"Hertog jan", brouwerij:"Arcen", price:2},{merk:"Amstel", brouwerij:"Heineken", price:1.50}]
+const data = [
+  {
+    merk:"Hertog jan", 
+    brouwerij:"Arcen", 
+    price:2
+  },
+  {
+    merk:"Amstel",
+    brouwerij:"Heineken",
+    price:1.50
+  }
+]
 
 function App() {
   return (
