@@ -5,14 +5,32 @@ import BeerList from './Components/BeerList';
 
 const data = [
   {
-    merk:"Hertog jan", 
-    brouwerij:"Arcen", 
-    price:2
+    brand:"Hertog Jan Weizener", 
+    brewery:"Hertog Jan",
+    type: "Weizen", 
+    price:2,
+    alc:6.5
   },
   {
-    merk:"Amstel",
-    brouwerij:"Heineken",
-    price:1.50
+    brand:"La Trappe Tripel", 
+    brewery:"Koningshoeven", 
+    type: "Tripel", //Kan een bier meerdere types hebben?
+    price:1.7,
+    alc:8
+  },
+  {
+    brand:"Tripel Karmeliet",
+    brewery:"Bosteels",
+    type: "Tripel", 
+    price:1.80,
+    alc:8.4
+  },
+  {
+    brand:"Hertog Jan Grand Prestige",
+    brewery:"Hertog Jan",
+    type: "Gerstewijn", 
+    price:5.00,
+    alc:10
   }
 ]
 
