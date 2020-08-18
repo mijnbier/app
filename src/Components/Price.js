@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './Price.css';
 
 export default function Price(props) {
 
-    return <span>&euro; {props.value.toFixed(2)}</span>
+    return <span className="price">&euro; {props.value.toFixed(2)}</span>
 
 }
