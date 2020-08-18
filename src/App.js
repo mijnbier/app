@@ -9,28 +9,32 @@ const data = [
     brewery:"Hertog Jan",
     type: "Weizen", 
     price:2,
-    alc:6.5
+    alc:6.5,
+    stock:0
   },
   {
     brand:"La Trappe Tripel", 
     brewery:"Koningshoeven", 
     type: "Tripel", //Kan een bier meerdere types hebben?
     price:1.7,
-    alc:8
+    alc:8,
+    stock:1
   },
   {
     brand:"Tripel Karmeliet",
     brewery:"Bosteels",
     type: "Tripel", 
     price:1.80,
-    alc:8.4
+    alc:8.4,
+    stock:2
   },
   {
     brand:"Hertog Jan Grand Prestige",
     brewery:"Hertog Jan",
     type: "Gerstewijn", 
     price:5.00,
-    alc:10
+    alc:10,
+    stock:5
   }
 ]
 
