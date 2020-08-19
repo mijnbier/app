@@ -5,18 +5,15 @@ import React, { useState } from 'react';
 export default function BeerDetail() {
   const { id } = useParams();
   const beer = data.find((item) => item.brand === id);
-  const stock = beer.stock
-  const [count, setCount] = useState(stock);
-
+  const [stock, setStock] = useState(beer.stock);
 
   return (
     <div>
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels.join(' - ')} </div>
-      <div>Voorraad: {count}</div>
-      <button disabled={count===0}  onClick={() => setCount(count - 1)}> Drink </button>
-       
-      <button onClick={() => setCount(count + 1)}> Toevoegen</button>
+      <div>Voorraad: {stock}</div>
+      <button disabled={stock===0}  onClick={() => setStock(stock - 1)}> Drink </button>
+      <button onClick={() => setStock(stock + 1)}> Toevoegen</button>
     </div>
   );
 }
