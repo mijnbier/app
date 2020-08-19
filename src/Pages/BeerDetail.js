@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 import { data } from "../Data";
 import React, { useState } from 'react';
+import Button from '@material-ui/core/Button';
+
 
 export default function BeerDetail() {
   const { id } = useParams();
@@ -12,8 +14,8 @@ export default function BeerDetail() {
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels.join(' - ')} </div>
       <div>Voorraad: {stock}</div>
-      <button disabled={stock===0}  onClick={() => setStock(stock - 1)}> Drink </button>
-      <button onClick={() => setStock(stock + 1)}> Toevoegen</button>
+      <Button variant="contained" color="primary" disabled={stock===0}  onClick={() => setStock(stock - 1)}> Drink </Button>
+      <Button variant="contained" color="primary" onClick={() => setStock(stock + 1)}> Toevoegen</Button>
     </div>
   );
 }

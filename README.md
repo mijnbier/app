@@ -1,3 +1,8 @@
+This Project uses:
+- react
+- react-router-dom
+- material-ui [docs](https://material-ui.com/getting-started/installation/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
