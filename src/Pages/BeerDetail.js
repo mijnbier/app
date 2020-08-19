@@ -3,7 +3,6 @@ import { data } from "../Data";
 import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 
-
 export default function BeerDetail() {
   const { id } = useParams();
   const beer = data.find((item) => item.brand === id);
