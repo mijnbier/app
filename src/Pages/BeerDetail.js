@@ -9,6 +9,7 @@ export default function BeerDetail() {
   return (
     <div>
       <h3>{beer.brand}</h3>
+      <div>Label: {beer.labels.join(' - ')} </div>
       <div>Voorraad: {beer.stock}</div>
     </div>
   );

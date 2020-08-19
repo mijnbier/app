@@ -2,7 +2,7 @@ export const data = [
   {
     brand: "Hertog Jan Weizener",
     brewery: "Hertog Jan",
-    type: "Weizen",
+    labels: ["Weizen"],
     price: 2,
     alc: 6.5,
     stock: 0,
@@ -11,7 +11,7 @@ export const data = [
   {
     brand: "La Trappe Tripel",
     brewery: "Koningshoeven",
-    type: "Tripel", //Kan een bier meerdere types hebben?
+    labels: ["Tripel","Trappist"],
     price: 1.7,
     alc: 8,
     stock: 1,
@@ -20,7 +20,7 @@ export const data = [
   {
     brand: "Tripel Karmeliet",
     brewery: "Bosteels",
-    type: "Tripel",
+    labels: ["Tripel"],
     price: 1.8,
     alc: 8.4,
     stock: 2,
@@ -29,7 +29,7 @@ export const data = [
   {
     brand: "Hertog Jan Grand Prestige",
     brewery: "Hertog Jan",
-    type: "Gerstewijn",
+    labels: ["Gerstewijn"],
     price: 5.0,
     alc: 10,
     stock: 5,
