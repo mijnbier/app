@@ -14,7 +14,8 @@ export default function BeerDetail() {
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels.join(' - ')} </div>
       <div>Voorraad: {count}</div>
-      <button onClick={() => setCount(count - 1)}> Drink </button>
+      <button disabled={count===0}  onClick={() => setCount(count - 1)}> Drink </button>
+       
       <button onClick={() => setCount(count + 1)}> Toevoegen</button>
     </div>
   );
