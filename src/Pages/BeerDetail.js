@@ -28,7 +28,7 @@ export default function BeerDetail() {
     <div>
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels.join(" - ")} </div>
-      <div>Alc: {beer.alc}%</div>
+      <div>Alc: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
       <Button
         variant="contained"
