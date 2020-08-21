@@ -36,15 +36,13 @@ export default function BeerDetail() {
         disabled={stock === 0}
         onClick={async () => await updateStock(stock - 1)}
       >
-        {" "}
-        Drink{" "}
+        Drink
       </Button>
       <Button
         variant="contained"
         color="primary"
-        onClick={() => updateStock(stock + 1)}
+        onClick={async () => await updateStock(stock + 1)}
       >
-        {" "}
         Toevoegen
       </Button>
     </div>

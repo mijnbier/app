@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Pages/Home";
 import BeerDetail from "./Pages/BeerDetail";
+import AddBeer from "./Pages/AddBeer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route path="/add-beer" children={<AddBeer />} />
           <Route path="/:id" children={<BeerDetail />} />
         </Switch>
       </div>
