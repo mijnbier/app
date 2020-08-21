@@ -1,9 +1,12 @@
-import React from 'react';
-import BeerListItem from './BeerListItem';
-
+import React from "react";
+import BeerListItem from "./BeerListItem";
 
 export default function BeerList(props) {
-    return <ul>
-        {props.data.map(item => <BeerListItem brand={item.brand} brewery={item.brewery} alc={item.alc} price={item.price} stock={item.stock} ></BeerListItem>)}
+  return (
+    <ul>
+      {props.data.map((item, index) => (
+        <BeerListItem key={index} {...item}></BeerListItem>
+      ))}
     </ul>
+  );
 }

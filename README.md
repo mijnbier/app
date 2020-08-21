@@ -1,7 +1,9 @@
 This Project uses:
+
 - react
 - react-router-dom
 - material-ui [docs](https://material-ui.com/getting-started/installation/)
+- firebase (hosting / firestore)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
