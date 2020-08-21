@@ -1,21 +1,55 @@
 import { useParams } from "react-router-dom";
-import { data } from "../Data";
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
+import React, { useState, useEffect } from "react";
+import Button from "@material-ui/core/Button";
+import database from "../Services/database";
 
 export default function BeerDetail() {
+  const [beer, setBeer] = useState();
+  const [stock, setStock] = useState(0);
   const { id } = useParams();
-  const beer = data.find((item) => item.brand === id);
-  const [stock, setStock] = useState(beer.stock);
 
-  return (
+  useEffect(() => {
+    database
+      .collection("beers")
+      .doc(id)
+      .get()
+      .then((snapshot) => {
+        setBeer(snapshot.data());
+        setStock(snapshot.data().stock);
+        console.log(snapshot.data());
+      });
+  }, [id]);
+
+  async function updateStock(newValue) {
+    setStock(newValue);
+    await database.collection("beers").doc(id).update({ stock: newValue });
+  }
+
+  return !beer ? (
+    <div>Laden...</div>
+  ) : (
     <div>
       <h3>{beer.brand}</h3>
-      <div>Label: {beer.labels.join(' - ')} </div>
+      <div>Label: {beer.labels.join(" - ")} </div>
       <div>Alc: {beer.alc}%</div>
       <div>Voorraad: {stock}</div>
-      <Button variant="contained" color="primary" disabled={stock === 0} onClick={() => setStock(stock - 1)}> Drink </Button>
-      <Button variant="contained" color="primary" onClick={() => setStock(stock + 1)}> Toevoegen</Button>
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={stock === 0}
+        onClick={async () => await updateStock(stock - 1)}
+      >
+        {" "}
+        Drink{" "}
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => updateStock(stock + 1)}
+      >
+        {" "}
+        Toevoegen
+      </Button>
     </div>
   );
 }
