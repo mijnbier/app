@@ -7,15 +7,17 @@ export const data = [
     alc: 6.5,
     stock: 0,
     volume: 30,
+    drinktempc: 5,
   },
   {
     brand: "La Trappe Tripel",
     brewery: "Koningshoeven",
-    labels: ["Tripel","Trappist"],
+    labels: ["Tripel", "Trappist"],
     price: 1.7,
     alc: 8,
     stock: 1,
     volume: 30,
+    drinktempc: 12,
   },
   {
     brand: "Tripel Karmeliet",
@@ -25,6 +27,7 @@ export const data = [
     alc: 8.4,
     stock: 2,
     volume: 30,
+    drinktempc: 8,
   },
   {
     brand: "Hertog Jan Grand Prestige",
@@ -34,5 +37,6 @@ export const data = [
     alc: 10,
     stock: 5,
     volume: 75,
+    drinktempc: 12,
   },
 ];
