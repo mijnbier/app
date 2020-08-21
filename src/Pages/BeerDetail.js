@@ -19,7 +19,6 @@ export default function BeerDetail() {
   }, [id]);
 
   async function updateStock(newValue) {
-    setStock(newValue);
     await database.collection("beers").doc(id).update({ stock: newValue });
   }
 
