@@ -12,8 +12,9 @@ export default function BeerDetail() {
     <div>
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels.join(' - ')} </div>
+      <div>Alc: {beer.alc}%</div>
       <div>Voorraad: {stock}</div>
-      <Button variant="contained" color="primary" disabled={stock===0}  onClick={() => setStock(stock - 1)}> Drink </Button>
+      <Button variant="contained" color="primary" disabled={stock === 0} onClick={() => setStock(stock - 1)}> Drink </Button>
       <Button variant="contained" color="primary" onClick={() => setStock(stock + 1)}> Toevoegen</Button>
     </div>
   );
