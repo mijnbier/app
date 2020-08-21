@@ -12,11 +12,9 @@ export default function BeerDetail() {
     database
       .collection("beers")
       .doc(id)
-      .get()
-      .then((snapshot) => {
+      .onSnapshot((snapshot) => {
         setBeer(snapshot.data());
         setStock(snapshot.data().stock);
-        console.log(snapshot.data());
       });
   }, [id]);
 
