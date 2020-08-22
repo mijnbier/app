@@ -5,12 +5,23 @@ import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            Width: 200,
+        },
+    },
+}));
 
 export default function AddBeer() {
+    const classes = useStyles();
     return (
         <div>
             <h3>Pagina Bier toevoegen</h3>
-            <FormControl variant="outlined" style={{ minWidth: 120 }}>
+            <FormControl className={classes.root} variant="outlined"  >
                 <TextField
                     id="beername"
                     label="Bier"
@@ -21,11 +32,11 @@ export default function AddBeer() {
                     label="Brouwerij"
                     variant="outlined"
                 />
-                <FormControl variant="outlined" >
+                <FormControl className={classes.root} variant="outlined" >
                     <InputLabel id="selectbeerstyle">Bierstijl</InputLabel>
                     <Select
-                        labelId="selectbeerstyle"
-                        id="beerstyle">
+                        id="beerstyle"
+                        label="Bierstijl">
                         <MenuItem value={'bock'}>Bock</MenuItem>
                         <MenuItem value={'blond'}>Blond</MenuItem>
                         <MenuItem value={'dubbel'}>Dubbel</MenuItem>
