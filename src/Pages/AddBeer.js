@@ -6,6 +6,8 @@ import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
 import { makeStyles } from '@material-ui/core/styles';
+import database from "../Services/database";
+import 'firebase/firestore';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,13 +18,28 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+
 export default function AddBeer() {
     const classes = useStyles();
+
+    const [name, setName] = React.useState();
+
+    const handleOnChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const onUpdate = () => {
+        const db = database.firestore()
+        db.collection('beers').doc().set({ name })
+    }
+
+
     return (
         <div>
             <h3>Pagina Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
-                <TextField
+                <TextField Onchange={handleOnChange} value={name}
                     id="beername"
                     label="Bier"
                     variant="outlined"
@@ -60,7 +77,7 @@ export default function AddBeer() {
                     type="number"
                     variant="outlined"
                 />
-                <Button
+                <Button onClick={onUpdate}
                     variant="contained"
                     color="primary"
                 > Toevoegen</Button>
