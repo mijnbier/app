@@ -38,7 +38,7 @@ export default function AddBeer() {
 
     return (
         <header>
-        
+
             <h3>Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
                 <TextField Onchange={handleOnChange} value={name}
@@ -51,22 +51,21 @@ export default function AddBeer() {
                     label="Brouwerij"
                     variant="outlined"
                 />
-                
+
                 <InputLabel id="selectbeerstyle">Bierstijl</InputLabel>
                 <Select
-                        id="beerstyle"
-                        label="Bierstijl">                    
-                        <MenuItem value={'bock'}>Bock</MenuItem>
-                        <MenuItem value={'blond'}>Blond</MenuItem>
-                        <MenuItem value={'dubbel'}>Dubbel</MenuItem>
-                        <MenuItem value={'ipa'}>IPA</MenuItem>
-                        <MenuItem value={'porter'}>Porter</MenuItem>
-                        <MenuItem value={'stout'}>Stout</MenuItem>
-                        <MenuItem value={'tripel'}>Tripel</MenuItem>
-                        <MenuItem value={'weizen'}>Weizen</MenuItem>
-                        <MenuItem value={'witbier'}>Witbier</MenuItem>
+                    id="beerstyle"
+                    label="Bierstijl">
+                    <MenuItem value={'bock'}>Bock</MenuItem>
+                    <MenuItem value={'blond'}>Blond</MenuItem>
+                    <MenuItem value={'dubbel'}>Dubbel</MenuItem>
+                    <MenuItem value={'ipa'}>IPA</MenuItem>
+                    <MenuItem value={'porter'}>Porter</MenuItem>
+                    <MenuItem value={'stout'}>Stout</MenuItem>
+                    <MenuItem value={'tripel'}>Tripel</MenuItem>
+                    <MenuItem value={'weizen'}>Weizen</MenuItem>
+                    <MenuItem value={'witbier'}>Witbier</MenuItem>
                 </Select>
-                
                 <TextField
                     id="alcohol"
                     label="Alcohol percentage"
@@ -84,7 +83,7 @@ export default function AddBeer() {
                     color="primary"
                 > Toevoegen</Button>
             </FormControl>
-        
+
         </header>
     );
 } 
