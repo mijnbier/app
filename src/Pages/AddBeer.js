@@ -39,7 +39,7 @@ export default function AddBeer() {
     return (
         <header>
         
-            <h3>Pagina Bier toevoegen</h3>
+            <h3>Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
                 <TextField Onchange={handleOnChange} value={name}
                     id="beername"
