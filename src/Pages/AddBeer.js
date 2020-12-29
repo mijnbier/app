@@ -37,6 +37,7 @@ export default function AddBeer() {
 
 
     return (
+        <header>
         <div>
             <h3>Pagina Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
@@ -84,5 +85,6 @@ export default function AddBeer() {
                 > Toevoegen</Button>
             </FormControl>
         </div >
+        </header>
     );
 } 
