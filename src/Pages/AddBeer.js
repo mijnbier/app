@@ -55,7 +55,7 @@ export default function AddBeer() {
                 <InputLabel id="selectbeerstyle">Bierstijl</InputLabel>
                 <Select
                         id="beerstyle"
-                        label="Bierstijl">                    >
+                        label="Bierstijl">                    
                         <MenuItem value={'bock'}>Bock</MenuItem>
                         <MenuItem value={'blond'}>Blond</MenuItem>
                         <MenuItem value={'dubbel'}>Dubbel</MenuItem>
