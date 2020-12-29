@@ -51,7 +51,7 @@ export default function AddBeer() {
                     label="Brouwerij"
                     variant="outlined"
                 />
-                <FormControl className={classes.root} variant="outlined" >
+                
                     <InputLabel id="selectbeerstyle">Bierstijl</InputLabel>
                     <Select
                         id="beerstyle"
@@ -66,7 +66,7 @@ export default function AddBeer() {
                         <MenuItem value={'weizen'}>Weizen</MenuItem>
                         <MenuItem value={'witbier'}>Witbier</MenuItem>
                     </Select>
-                </FormControl>
+                
                 <TextField
                     id="alcohol"
                     label="Alcohol percentage"
