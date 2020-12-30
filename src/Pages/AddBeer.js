@@ -53,6 +53,7 @@ export default function AddBeer() {
                 <TextField id="selectbeerstyle" select
                     variant="outlined"
                     label="Bierstijl">
+                    <MenuItem value={'barleywine'}>Gerstewijn</MenuItem>
                     <MenuItem value={'bock'}>Bock</MenuItem>
                     <MenuItem value={'blond'}>Blond</MenuItem>
                     <MenuItem value={'dubbel'}>Dubbel</MenuItem>
@@ -62,6 +63,8 @@ export default function AddBeer() {
                     <MenuItem value={'tripel'}>Tripel</MenuItem>
                     <MenuItem value={'weizen'}>Weizen</MenuItem>
                     <MenuItem value={'witbier'}>Witbier</MenuItem>
+                    <MenuItem value={'other'}>Overig</MenuItem>
+
                 </TextField>
                 <TextField
                     id="alcohol"
