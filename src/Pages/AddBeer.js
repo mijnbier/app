@@ -27,10 +27,21 @@ export default function AddBeer() {
     const [stock, setStock] = React.useState(0);
     const [style, setStyle] = React.useState("");
     const [alcohol, setAlcohol] = React.useState(null);
+    const [beerExists, setBeerExists] = React.useState(false);
 
-    const handleNameChange = (e) => {
+    const handleNameChange = async (e) => {
         setName(e.target.value);
+        const result = await db.collection('beers').where("brand", "==", e.target.value).get()
+        
+        if(result.size === 1) {
+            setBeerExists(true)
+            console.log(result.docs[0].id, " => ", result.docs[0].data());
+        } else {
+            setBeerExists(false)
+            console.log("xxxxx")
+        }
     };
+
     const handleStockChange = (e) => {
         setStock(e.target.value);
     };
