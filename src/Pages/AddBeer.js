@@ -24,7 +24,10 @@ export default function AddBeer() {
     const classes = useStyles();
 
     const [name, setName] = React.useState();
+    const [brewery, setBrewery] = React.useState();
     const [stock, setStock] = React.useState();
+    const [style, setStyle] = React.useState();
+    const [alcohol, setAlcohol] = React.useState();
 
 
     const handleNameChange = (e) => {
@@ -33,8 +36,17 @@ export default function AddBeer() {
     const handleStockChange = (e) => {
         setStock(e.target.value);
     };
+    const handleBreweryChange = (e) => {
+        setBrewery(e.target.value);
+    };
+    const handleStyleChange = (e) => {
+        setStyle(e.target.value);
+    };
+    const handleAlcoholChange = (e) => {
+        setAlcohol(e.target.value);
+    };
     const onUpdate = () => {
-        db.collection('beers').doc().set({ brand: name, price: 0, stock })
+        db.collection('beers').doc().set({ brand: name, price: 0, stock, brewery, alcohol, style })
     }
 
 
@@ -47,12 +59,12 @@ export default function AddBeer() {
                     id="brand"
                     label="Bier"
                 />
-                <TextField
+                <TextField onChange={handleBreweryChange} value={brewery}
                     id="brewery"
                     label="Brouwerij"
                 />
-                <TextField id="selectbeerstyle" select
-                    variant="outlined"
+                <TextField onChange={handleStyleChange} value={style}
+                    id="selectbeerstyle" select
                     label="Bierstijl">
                     <MenuItem value={'barleywine'}>Gerstewijn</MenuItem>
                     <MenuItem value={'bock'}>Bock</MenuItem>
@@ -67,7 +79,7 @@ export default function AddBeer() {
                     <MenuItem value={'other'}>Overig</MenuItem>
 
                 </TextField>
-                <TextField
+                <TextField onChange={handleAlcoholChange} value={alcohol}
                     id="alcohol"
                     label="Alcohol percentage"
                     type="number"

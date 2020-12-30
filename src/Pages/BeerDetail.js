@@ -25,26 +25,26 @@ export default function BeerDetail() {
   return !beer ? (
     <div>Laden...</div>
   ) : (
-    <div>
-      <h3>{beer.brand}</h3>
-      <div>Label: {beer.labels.join(" - ")} </div>
-      <div>Alc: {beer.alcohol}%</div>
-      <div>Voorraad: {stock}</div>
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={stock === 0}
-        onClick={async () => await updateStock(stock - 1)}
-      >
-        Drink
+      <div>
+        <h3>{beer.brand}</h3>
+        <div>Label: {beer.labels?.join(" - ")} </div>
+        <div>Alc: {beer.alcohol}%</div>
+        <div>Voorraad: {stock}</div>
+        <Button
+          variant="contained"
+          color="primary"
+          disabled={stock === 0}
+          onClick={async () => await updateStock(stock - 1)}
+        >
+          Drink
       </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={async () => await updateStock(stock + 1)}
-      >
-        Toevoegen
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={async () => await updateStock(stock + 1)}
+        >
+          Toevoegen
       </Button>
-    </div>
-  );
+      </div>
+    );
 }
