@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import database from "../Services/database";
@@ -7,16 +7,21 @@ export default function BeerDetail() {
   const [beer, setBeer] = useState();
   const [stock, setStock] = useState(0);
   const { id } = useParams();
-
+  const history = useHistory();
   useEffect(() => {
     database
       .collection("beers")
       .doc(id)
       .onSnapshot((snapshot) => {
         setBeer(snapshot.data());
-        setStock(snapshot.data().stock);
+        setStock(snapshot.data()?.stock);
       });
   }, [id]);
+
+  async function deleteBeer() {
+    await database.collection("beers").doc(id).delete()
+    history.push("/");
+  }
 
   async function updateStock(newValue) {
     await database.collection("beers").doc(id).update({ stock: newValue });
@@ -25,18 +30,28 @@ export default function BeerDetail() {
   return !beer ? (
     <div>Laden...</div>
   ) : (
-      <div>
-        <h3>{beer.brand}</h3>
-        <div>Label: {beer.labels?.join(" - ")} </div>
-        <div>Alc: {beer.alcohol}%</div>
-        <div>Voorraad: {stock}</div>
-        <Button
-          variant="contained"
-          color="primary"
-          disabled={stock === 0}
-          onClick={async () => await updateStock(stock - 1)}
-        >
-          Drink
+    <div>
+      <h3>{beer.brand}</h3>
+      <div>Label: {beer.labels?.join(" - ")} </div>
+      <div>Alc: {beer.alcohol}%</div>
+      <div>Voorraad: {stock}</div>
+
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={stock === 0}
+        onClick={deleteBeer}
+      >
+        Delete
+      </Button>
+
+      <Button
+        variant="contained"
+        color="primary"
+        disabled={stock === 0}
+        onClick={async () => await updateStock(stock - 1)}
+      >
+        Drink
       </Button>
         <Button
           variant="contained"
