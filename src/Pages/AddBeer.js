@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
         '& .MuiTextField-root': {
             margin: theme.spacing(1),
             Width: 200,
+
         },
     },
 }));
@@ -44,15 +45,11 @@ export default function AddBeer() {
                 <TextField Onchange={handleOnChange} value={name}
                     id="beername"
                     label="Bier"
-                    variant="outlined"
                 />
                 <TextField
                     id="brewery"
                     label="Brouwerij"
-                    variant="outlined"
                 />
-
-
                 <TextField id="selectbeerstyle" select
                     variant="outlined"
                     label="Bierstijl">
@@ -70,13 +67,11 @@ export default function AddBeer() {
                     id="alcohol"
                     label="Alcohol percentage"
                     type="number"
-                    variant="outlined"
                 />
                 <TextField
                     id="outlined-number"
                     label="Aantal stuks"
                     type="number"
-                    variant="outlined"
                 />
                 <Button onClick={onUpdate}
                     variant="contained"
