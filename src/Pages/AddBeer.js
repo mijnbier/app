@@ -24,13 +24,17 @@ export default function AddBeer() {
     const classes = useStyles();
 
     const [name, setName] = React.useState();
+    const [stock, setStock] = React.useState();
 
-    const handleOnChange = (e) => {
+
+    const handleNameChange = (e) => {
         setName(e.target.value);
     };
-
+    const handleStockChange = (e) => {
+        setStock(e.target.value);
+    };
     const onUpdate = () => {
-        db.collection('beers').doc().set({ brand: name })
+        db.collection('beers').doc().set({ brand: name, price: 0, stock })
     }
 
 
@@ -39,7 +43,7 @@ export default function AddBeer() {
 
             <h3>Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
-                <TextField onChange={handleOnChange} value={name}
+                <TextField onChange={handleNameChange} value={name}
                     id="brand"
                     label="Bier"
                 />
@@ -69,7 +73,7 @@ export default function AddBeer() {
                     type="number"
                     inputProps={{ min: "0", max: "100", step: "0.1" }}
                 />
-                <TextField
+                <TextField onChange={handleStockChange} value={stock}
                     id="outlined-number"
                     label="Aantal stuks"
                     type="number"
