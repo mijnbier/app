@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import database from "../Services/database";
@@ -31,6 +31,8 @@ export default function BeerDetail() {
     <div>Laden...</div>
   ) : (
     <div>
+      <Link to="/">Home</Link>
+
       <h3>{beer.brand}</h3>
       <div>Label: {beer.labels?.join(" - ")} </div>
       <div>Alc: {beer.alcohol}%</div>
