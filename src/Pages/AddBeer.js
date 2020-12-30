@@ -29,7 +29,7 @@ export default function AddBeer() {
 
     const [name, setName] = React.useState("");
     const [brewery, setBrewery] = React.useState("");
-    const [stock, setStock] = React.useState(0);
+    const [stock, setStock] = React.useState(1);
     const [style, setStyle] = React.useState("");
     const [alcohol, setAlcohol] = React.useState(null);
     const [beerExists, setBeerExists] = React.useState(false);
