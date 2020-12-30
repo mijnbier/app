@@ -1,13 +1,11 @@
 import React from "react";
 import "./AddBeer.css";
 import FormControl from '@material-ui/core/FormControl';
-//import InputLabel from '@material-ui/core/InputLabel';
-//import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
 import { makeStyles } from '@material-ui/core/styles';
-import database from "../Services/database";
+import db from "../Services/database";
 import 'firebase/firestore';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,8 +30,7 @@ export default function AddBeer() {
     };
 
     const onUpdate = () => {
-        const db = database.firestore()
-        db.collection('beers').doc().set({ name })
+        db.collection('beers').doc().set({ brand: name })
     }
 
 
@@ -42,8 +39,8 @@ export default function AddBeer() {
 
             <h3>Bier toevoegen</h3>
             <FormControl className={classes.root} variant="outlined"  >
-                <TextField Onchange={handleOnChange} value={name}
-                    id="beername"
+                <TextField onChange={handleOnChange} value={name}
+                    id="brand"
                     label="Bier"
                 />
                 <TextField
