@@ -10,6 +10,7 @@ import db from "../Services/database";
 import "firebase/firestore";
 import InputAdornment from '@material-ui/core/InputAdornment';
 import logo from "../pub.svg";
+import firebase from "firebase";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,14 +38,7 @@ export default function AddBeer() {
     const handleNameChange = async (e) => {
         setName(e.target.value);
         const result = await db.collection('beers').where("brand", "==", e.target.value).get()
-        
-        if(result.size === 1) {
-            setBeerExists(true)
-            console.log(result.docs[0].id, " => ", result.docs[0].data());
-        } else {
-            setBeerExists(false)
-            console.log("xxxxx")
-        }
+        setBeerExists(result.size === 1)
     };
 
     const handleStockChange = (e) => {
@@ -59,8 +53,16 @@ export default function AddBeer() {
     const handleAlcoholChange = (e) => {
         setAlcohol(e.target.value);
     };
-    const onUpdate = () => {
-        db.collection('beers').doc().set({ brand: name, price: 0, stock, brewery, alcohol, style })
+    const onUpdate = async () => {
+        if(beerExists) {
+            const result = await db.collection('beers').where("brand", "==", name).get()
+            db.collection('beers').doc(result.docs[0].id).update({
+                stock: firebase.firestore.FieldValue.increment(parseInt(stock))
+            })
+        } else {
+            db.collection('beers').doc().set({ brand: name, price: 0, stock, brewery, alcohol, style })
+        }
+        
         history.push("/");
     }
 
