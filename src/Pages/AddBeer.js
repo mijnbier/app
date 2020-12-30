@@ -67,6 +67,7 @@ export default function AddBeer() {
                     id="alcohol"
                     label="Alcohol percentage"
                     type="number"
+                    inputProps={{ min: "0", max: "100", step: "0.1" }}
                 />
                 <TextField
                     id="outlined-number"
