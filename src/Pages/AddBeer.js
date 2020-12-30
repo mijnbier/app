@@ -8,6 +8,8 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
 import db from "../Services/database";
 import "firebase/firestore";
+import InputAdornment from '@material-ui/core/InputAdornment';
+import logo from "../pub.svg";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(1),
       Width: 200,
     },
+    '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
   },
 }));
 
@@ -67,19 +72,26 @@ export default function AddBeer() {
       <FormControl className={classes.root} variant="outlined">
         <TextField
           onChange={handleNameChange}
+          className={classes.root} 
           value={name}
+          color={beerExists ? "secondary" : "primary"}
           id="brand"
           label="Bier"
+          InputProps={{
+            endAdornment: <InputAdornment position="edge"><img hidden={!beerExists} src={logo}/></InputAdornment>,
+          }}
         />
         <TextField
           onChange={handleBreweryChange}
           value={brewery}
+          disabled={beerExists}
           id="brewery"
           label="Brouwerij"
         />
         <TextField
           onChange={handleStyleChange}
           value={style}
+          disabled={beerExists}
           id="selectbeerstyle"
           select
           label="Bierstijl"
@@ -97,6 +109,7 @@ export default function AddBeer() {
           <MenuItem value={"other"}>Overig</MenuItem>
         </TextField>
         <TextField
+          disabled={beerExists}
           onChange={handleAlcoholChange}
           value={alcohol}
           id="alcohol"

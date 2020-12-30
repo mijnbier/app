@@ -1,13 +1,17 @@
 Header {
-    background-color: darkgreen;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+  background-color: darkgreen;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
 .MuiFormControl-root {
-    background-color: rgb(199, 247, 199)  
-  }
+  background-color: rgb(199, 247, 199);
+}
+
+.MuiOutlinedInput-adornedEnd img{
+  height: 20px;
+}

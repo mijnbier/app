@@ -11,6 +11,11 @@ const theme = createMuiTheme({
       variant: "outlined"
     },
   },
+  palette:{
+    secondary:{
+      main: "#006400"
+    }
+  }
 });
 
 export default function App() {
