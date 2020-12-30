@@ -1,8 +1,8 @@
 import React from "react";
 import "./AddBeer.css";
 import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from "@material-ui/core/Select";
+//import InputLabel from '@material-ui/core/InputLabel';
+//import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from "@material-ui/core/Button";
@@ -52,9 +52,9 @@ export default function AddBeer() {
                     variant="outlined"
                 />
 
-                <InputLabel id="selectbeerstyle">Bierstijl</InputLabel>
-                <Select
-                    id="beerstyle"
+
+                <TextField id="selectbeerstyle" select
+                    variant="outlined"
                     label="Bierstijl">
                     <MenuItem value={'bock'}>Bock</MenuItem>
                     <MenuItem value={'blond'}>Blond</MenuItem>
@@ -65,7 +65,7 @@ export default function AddBeer() {
                     <MenuItem value={'tripel'}>Tripel</MenuItem>
                     <MenuItem value={'weizen'}>Weizen</MenuItem>
                     <MenuItem value={'witbier'}>Witbier</MenuItem>
-                </Select>
+                </TextField>
                 <TextField
                     id="alcohol"
                     label="Alcohol percentage"
