@@ -1,5 +1,6 @@
 import React from "react";
 import "./AddBeer.css";
+import { useHistory } from "react-router-dom";
 import FormControl from '@material-ui/core/FormControl';
 import TextField from "@material-ui/core/TextField";
 import MenuItem from '@material-ui/core/MenuItem';
@@ -28,7 +29,7 @@ export default function AddBeer() {
     const [stock, setStock] = React.useState();
     const [style, setStyle] = React.useState();
     const [alcohol, setAlcohol] = React.useState();
-
+    const history = useHistory();
 
     const handleNameChange = (e) => {
         setName(e.target.value);
@@ -47,6 +48,7 @@ export default function AddBeer() {
     };
     const onUpdate = () => {
         db.collection('beers').doc().set({ brand: name, price: 0, stock, brewery, alcohol, style })
+        history.push("/");
     }
 
 
@@ -93,6 +95,7 @@ export default function AddBeer() {
                 <Button onClick={onUpdate}
                     variant="contained"
                     color="primary"
+                    
                 > Toevoegen</Button>
             </FormControl>
 

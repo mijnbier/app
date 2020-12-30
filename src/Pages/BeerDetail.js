@@ -36,14 +36,7 @@ export default function BeerDetail() {
       <div>Alc: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
 
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={stock === 0}
-        onClick={deleteBeer}
-      >
-        Delete
-      </Button>
+      
 
       <Button
         variant="contained"
@@ -59,6 +52,13 @@ export default function BeerDetail() {
           onClick={async () => await updateStock(stock + 1)}
         >
           Toevoegen
+      </Button>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={deleteBeer}
+      >
+        Delete
       </Button>
       </div>
     );
