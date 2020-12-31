@@ -34,7 +34,7 @@ export default function BeerDetail() {
       <Link to="/">Home</Link>
 
       <h3>{beer.brand}</h3>
-      <div>Label: {beer.labels?.join(" - ")} </div>
+      <div>Label: {beer.style} </div>
       <div>Alc: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
 

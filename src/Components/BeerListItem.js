@@ -7,8 +7,8 @@ export default function BeerListItem(props) {
   return (
     <li>
       <div>
-        <img src={bottle} alt="Beer Bottle" height="100" background="transparent"></img>
-        Naam: <Link to={`/${props.id}`}>{props.brand}</Link>
+        <img src={bottle} alt="Beer Bottle" height="40" background="transparent"></img>
+        Naam: <Link to={`/${props.id}`} style={{ color: '#FFF' }}>{props.brand}</Link>
         <br></br>Brouwerij: {props.brewery}, {props.alcohol}% alc.  <Price value={props.price} /> Voorraad:{" "}
         {props.stock}x
       </div>
