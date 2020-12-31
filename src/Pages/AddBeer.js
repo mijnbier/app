@@ -112,17 +112,17 @@ export default function AddBeer() {
           select
           label="Bierstijl"
         >
-          <MenuItem value={"barleywine"}>Gerstewijn</MenuItem>
-          <MenuItem value={"bock"}>Bock</MenuItem>
-          <MenuItem value={"blond"}>Blond</MenuItem>
-          <MenuItem value={"dubbel"}>Dubbel</MenuItem>
-          <MenuItem value={"ipa"}>IPA</MenuItem>
-          <MenuItem value={"porter"}>Porter</MenuItem>
-          <MenuItem value={"stout"}>Stout</MenuItem>
-          <MenuItem value={"tripel"}>Tripel</MenuItem>
-          <MenuItem value={"weizen"}>Weizen</MenuItem>
-          <MenuItem value={"witbier"}>Witbier</MenuItem>
-          <MenuItem value={"other"}>Overig</MenuItem>
+          <MenuItem value={"Barleywine"}>Gerstewijn</MenuItem>
+          <MenuItem value={"Bock"}>Bock</MenuItem>
+          <MenuItem value={"Blond"}>Blond</MenuItem>
+          <MenuItem value={"Dubbel"}>Dubbel</MenuItem>
+          <MenuItem value={"IPA"}>IPA</MenuItem>
+          <MenuItem value={"Porter"}>Porter</MenuItem>
+          <MenuItem value={"Stout"}>Stout</MenuItem>
+          <MenuItem value={"Tripel"}>Tripel</MenuItem>
+          <MenuItem value={"Weizen"}>Weizen</MenuItem>
+          <MenuItem value={"Witbier"}>Witbier</MenuItem>
+          <MenuItem value={"Other"}>Overig</MenuItem>
         </TextField>
         <TextField
           disabled={beerExists}
