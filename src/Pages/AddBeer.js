@@ -78,7 +78,7 @@ export default function AddBeer() {
 
   return (
     <header>
-      <Link to="/">Home</Link>
+      <Link to="/" style={{ color: '#FFF' }}>Home</Link>
 
       <h3>Bier toevoegen</h3>
       <FormControl className={classes.root} variant="outlined">

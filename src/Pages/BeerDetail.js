@@ -1,6 +1,7 @@
 import { useParams, useHistory, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
+import "../App.css";
 import database from "../Services/database";
 
 export default function BeerDetail() {
@@ -30,15 +31,15 @@ export default function BeerDetail() {
   return !beer ? (
     <div>Laden...</div>
   ) : (
-    <div>
-      <Link to="/">Home</Link>
+    
+      <header>
+        <div>
+      <Link to="/" style={{ color: '#FFF' }}>Home</Link>
 
       <h3>{beer.brand}</h3>
-      <div>Label: {beer.style} </div>
+      <div>Stijl: {beer.style} </div>
       <div>Alc: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
-
-      
 
       <Button
         variant="contained"
@@ -54,6 +55,13 @@ export default function BeerDetail() {
           onClick={async () => await updateStock(stock + 1)}
         >
           Toevoegen
+      </Button><br></br>
+      <Button
+        variant="contained"
+        color="primary"
+        //onClick={editBeer}
+      >
+        Edit
       </Button>
       <Button
         variant="contained"
@@ -63,5 +71,6 @@ export default function BeerDetail() {
         Delete
       </Button>
       </div>
+      </header>
     );
 }
