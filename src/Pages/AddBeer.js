@@ -92,7 +92,7 @@ export default function AddBeer() {
           InputProps={{
             endAdornment: (
               <InputAdornment position="edge">
-                <img hidden={!beerExists} src={logo} />
+                <img hidden={!beerExists} src={logo} alt="beer-icon" />
               </InputAdornment>
             ),
           }}
