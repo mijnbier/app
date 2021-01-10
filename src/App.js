@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./Pages/Home";
 import BeerDetail from "./Pages/BeerDetail";
+import EditBeer from "./Pages/EditBeer";
 import AddBeer from "./Pages/AddBeer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -28,6 +29,7 @@ export default function App() {
               <Home />
             </Route>
             <Route path="/add-beer" children={<AddBeer />} />
+            <Route path="/edit-beer/:id" children={<EditBeer />} />
             <Route path="/:id" children={<BeerDetail />} />
           </Switch>
         </div>
