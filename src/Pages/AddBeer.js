@@ -28,6 +28,7 @@ export default function AddBeer() {
   const classes = useStyles();
   const history = useHistory();
 
+  const [ean, setEan] = React.useState("");
   const [name, setName] = React.useState("");
   const [brewery, setBrewery] = React.useState("");
   const [stock, setStock] = React.useState(1);
@@ -35,6 +36,9 @@ export default function AddBeer() {
   const [alcohol, setAlcohol] = React.useState(null);
   const [beerExists, setBeerExists] = React.useState(false);
 
+  const handleEanChange = (e) => {
+    setEan(e.target.value);
+  };
   const handleNameChange = async (e) => {
     setName(e.target.value);
     const result = await db
@@ -82,6 +86,13 @@ export default function AddBeer() {
 
       <h3>Bier toevoegen</h3>
       <FormControl className={classes.root} variant="outlined">
+      <TextField
+          onChange={handleEanChange}
+          value={ean}
+          id="outlined-number"
+          label="Barcode"
+          type="number"
+        />
         <TextField
           onChange={handleNameChange}
           className={classes.root}
