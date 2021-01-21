@@ -28,6 +28,7 @@ export default function AddBeer() {
   const classes = useStyles();
   const history = useHistory();
 
+  const [ean, setEan] = React.useState("");
   const [name, setName] = React.useState("");
   const [brewery, setBrewery] = React.useState("");
   const [stock, setStock] = React.useState(1);
@@ -35,13 +36,27 @@ export default function AddBeer() {
   const [alcohol, setAlcohol] = React.useState(null);
   const [beerExists, setBeerExists] = React.useState(false);
 
+  const handleEanChange = async (e) => {
+    setEan(e.target.value);
+    const result = await db
+      .collection("beers")
+      .where("ean", "array-contains" , e.target.value)
+      .get();
+    setBeerExists(result.size > 0);
+    if (result.size > 0){
+      const id = result.docs[0].id;
+      db.collection("beers").doc(id).onSnapshot((snapshot) => {
+        setName(snapshot.data().brand);
+      });
+    }
+  };
   const handleNameChange = async (e) => {
     setName(e.target.value);
     const result = await db
       .collection("beers")
       .where("brand", "==", e.target.value)
       .get();
-    setBeerExists(result.size === 1);
+    setBeerExists(result.size > 0 );
   };
 
   const handleStockChange = (e) => {
@@ -66,11 +81,12 @@ export default function AddBeer() {
         .doc(result.docs[0].id)
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
+          ean: [ean]
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ brand: name, price: 0, stock, brewery, alcohol, style });
+        .set({ ean: [ean],  brand: name, price: 0, stock, brewery, alcohol, style });
     }
 
     history.push("/");
@@ -82,6 +98,13 @@ export default function AddBeer() {
 
       <h3>Bier toevoegen</h3>
       <FormControl className={classes.root} variant="outlined">
+      <TextField
+          onChange={handleEanChange}
+          value={ean}
+          id="outlined-number"
+          label="Barcode"
+          autoFocus={true}
+        />
         <TextField
           onChange={handleNameChange}
           className={classes.root}
