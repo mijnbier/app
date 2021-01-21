@@ -36,8 +36,22 @@ export default function AddBeer() {
   const [alcohol, setAlcohol] = React.useState(null);
   const [beerExists, setBeerExists] = React.useState(false);
 
-  const handleEanChange = (e) => {
+  const handleEanChange = async (e) => {
     setEan(e.target.value);
+    const result = await db
+      .collection("beers")
+      .where("ean", "array-contains" , e.target.value)
+      .get();
+      console.log(result)
+    setBeerExists(result.size > 0);
+    if (result.size > 0){
+      const id = result.docs[0].id;
+      console.log(id)
+      db.collection("beers").doc(id).onSnapshot((snapshot) => {
+        console.log(snapshot.data())
+        setName(snapshot.data().name);
+      });
+    }
   };
   const handleNameChange = async (e) => {
     setName(e.target.value);
@@ -70,11 +84,12 @@ export default function AddBeer() {
         .doc(result.docs[0].id)
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
+          ean: [ean]
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ brand: name, price: 0, stock, brewery, alcohol, style });
+        .set({ ean: [ean],  brand: name, price: 0, stock, brewery, alcohol, style });
     }
 
     history.push("/");
@@ -91,7 +106,7 @@ export default function AddBeer() {
           value={ean}
           id="outlined-number"
           label="Barcode"
-          type="number"
+          autoFocus={true}
         />
         <TextField
           onChange={handleNameChange}
