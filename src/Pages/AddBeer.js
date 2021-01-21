@@ -42,14 +42,11 @@ export default function AddBeer() {
       .collection("beers")
       .where("ean", "array-contains" , e.target.value)
       .get();
-      console.log(result)
     setBeerExists(result.size > 0);
     if (result.size > 0){
       const id = result.docs[0].id;
-      console.log(id)
       db.collection("beers").doc(id).onSnapshot((snapshot) => {
-        console.log(snapshot.data())
-        setName(snapshot.data().name);
+        setName(snapshot.data().brand);
       });
     }
   };
@@ -59,7 +56,7 @@ export default function AddBeer() {
       .collection("beers")
       .where("brand", "==", e.target.value)
       .get();
-    setBeerExists(result.size === 1);
+    setBeerExists(result.size > 0 );
   };
 
   const handleStockChange = (e) => {
