@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import logo from "../pub.svg";
-import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import BeerList from "../Components/BeerList";
 import database from "../Services/database";
+import { Button } from "@material-ui/core";
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -20,7 +20,7 @@ export default function Home() {
   }, []);
 
   return (
-    <header>
+    <>
       <img src={logo} className="logo" alt="logo" />
       <p>Mijn Bier App</p>
       <Button
@@ -31,7 +31,7 @@ export default function Home() {
       >
         Nieuw Bier toevoegen
       </Button>
-      <BeerList name="Duncan" data={data}></BeerList>
-    </header>
+      <BeerList data={data}></BeerList>
+    </>
   );
 }

@@ -32,7 +32,6 @@ export default function BeerDetail() {
     <div>Laden...</div>
   ) : (
     
-      <header>
         <div>
       <Link to="/" style={{ color: '#FFF' }}>Home</Link>
 
@@ -59,7 +58,6 @@ export default function BeerDetail() {
       <Button
         variant="contained"
         color="primary"
-        //onClick={editBeer}
       >
         Edit
       </Button>
@@ -71,6 +69,5 @@ export default function BeerDetail() {
         Delete
       </Button>
       </div>
-      </header>
     );
 }

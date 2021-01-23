@@ -1,6 +1,6 @@
 import React from "react";
 import "./AddBeer.css";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -93,9 +93,8 @@ export default function AddBeer() {
   };
 
   return (
-    <header>
-      <Link to="/" style={{ color: '#FFF' }}>Home</Link>
-
+    <>
+      
       <h3>Bier toevoegen</h3>
       <FormControl className={classes.root} variant="outlined">
       <TextField
@@ -173,6 +172,6 @@ export default function AddBeer() {
           Toevoegen
         </Button>
       </FormControl>
-    </header>
+    </>
   );
 }

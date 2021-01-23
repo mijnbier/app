@@ -4,6 +4,7 @@ import BeerDetail from "./Pages/BeerDetail";
 import AddBeer from "./Pages/AddBeer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import BeerAppBar from "./Components/BeerAppBar";
 
 const theme = createMuiTheme({
   props: {
@@ -22,7 +23,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <div className="App">
+          <BeerAppBar></BeerAppBar>
           <Switch>
             <Route exact path="/">
               <Home />
@@ -30,7 +31,6 @@ export default function App() {
             <Route path="/add-beer" children={<AddBeer />} />
             <Route path="/:id" children={<BeerDetail />} />
           </Switch>
-        </div>
       </Router>
     </ThemeProvider>
   );
