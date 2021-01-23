@@ -81,7 +81,7 @@ export default function AddBeer() {
         .doc(result.docs[0].id)
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
-          ean: [ean]
+          ean: firebase.firestore.FieldValue.arrayUnion(ean)
         });
     } else {
       db.collection("beers")
