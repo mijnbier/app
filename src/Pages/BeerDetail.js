@@ -40,6 +40,7 @@ export default function BeerDetail() {
       <div>Stijl: {beer.style} </div>
       <div>Alc: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
+      <div>Prijs: {beer.price}</div>
 
       <Button
         variant="contained"

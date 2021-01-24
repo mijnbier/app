@@ -34,6 +34,7 @@ export default function AddBeer() {
   const [stock, setStock] = React.useState(1);
   const [style, setStyle] = React.useState("");
   const [alcohol, setAlcohol] = React.useState(null);
+  const [price, setPrice] = React.useState("");
   const [beerExists, setBeerExists] = React.useState(false);
 
   const handleEanChange = async (e) => {
@@ -59,6 +60,10 @@ export default function AddBeer() {
     setBeerExists(result.size > 0 );
   };
 
+  const handlePriceChange = (e) => {
+    setPrice(e.target.value);
+  };
+
   const handleStockChange = (e) => {
     setStock(e.target.value);
   };
@@ -81,12 +86,14 @@ export default function AddBeer() {
         .doc(result.docs[0].id)
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
-          ean: firebase.firestore.FieldValue.arrayUnion(ean)
+          ean: firebase.firestore.FieldValue.arrayUnion(ean),
+          price: firebase.firestore.FieldValue.arrayUnion(price)
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ ean: [ean],  brand: name, price: 0, stock, brewery, alcohol, style });
+        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style });
+        
     }
 
     history.push("/");
@@ -162,11 +169,19 @@ export default function AddBeer() {
           label="Aantal stuks"
           type="number"
         />
+        <TextField
+          onChange={handlePriceChange}
+          value={price}
+          id="outlined-number"
+          label="Prijs per stuk"
+          type="number"
+        />
         <Button
           onClick={onUpdate}
           variant="contained"
           color="primary"
           disabled={!name}
+          
         >
           {" "}
           Toevoegen
