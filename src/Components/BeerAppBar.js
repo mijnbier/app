@@ -7,9 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu"
 import MenuItem from "@material-ui/core/MenuItem"
-
 import { Link } from "react-router-dom";
-import { MenuList } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,16 +53,15 @@ export default function ButtonAppBar() {
           <Menu
           open={Boolean(anchorEl)}
           getContentAnchorEl={null}
-    anchorOrigin={{ vertical: "top", horizontal: "left" }}
-    transformOrigin={{ vertical: "top", horizontal: "left" }}
-        onClose={handleClose}
-      > 
-      <MenuList>
+          anchorOrigin={{ vertical: "top", horizontal: "left" }}
+          onClose={handleClose}
+          > 
+      
         <MenuItem onClick={handleClose}>Bieren</MenuItem>
         <MenuItem onClick={handleClose}>Locaties</MenuItem>
         <MenuItem onClick={handleClose}>Recent</MenuItem>
         <MenuItem onClick={handleClose}>Instellingen</MenuItem>
-      </MenuList>
+      
       </Menu>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" variant="body" style={{ color: '#FFF' }}>Bier App Bar</Link>
