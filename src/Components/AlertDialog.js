@@ -18,14 +18,11 @@ export default class extends Component {
             open: !this.state.open
         })
     }
-    handleClose = () =>{
-        this.setState({
-            open: !this.state.open
-        })
-
-    }
     handleDelete = () => {
-        console.log("Beer not deleted")
+        this.setState({
+            delete: !this.state.delete
+        })
+        console.log(this.state.delete)
     }
 
     render() {
