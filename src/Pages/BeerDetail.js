@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "../App.css";
 import database from "../Services/database";
+import AlertDialog from "../Components/AlertDialog";
 
 export default function BeerDetail() {
   const [beer, setBeer] = useState();
@@ -67,7 +68,9 @@ export default function BeerDetail() {
         onClick={deleteBeer}
       >
         Delete
-      </Button>
+      </Button><br></br>
+      
+      <AlertDialog></AlertDialog>
       </div>
     );
 }
