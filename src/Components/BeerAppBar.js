@@ -5,7 +5,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Menu from "@material-ui/core/Menu"
+import MenuItem from "@material-ui/core/MenuItem"
+
 import { Link } from "react-router-dom";
+import { MenuList } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     maxHeight: 1,
   },
   menuButton: {
-    marginRight: theme.spacing(5),
+    marginRight: theme.spacing(3),
   },
   title: {
     flexGrow: 1,
@@ -26,18 +30,42 @@ const useStyles = makeStyles((theme) => ({
 export default function ButtonAppBar() {
   const classes = useStyles();
 
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div className={classes.root} style={{ width: "100%" }}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
           <IconButton
+            onClick={handleClick}
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
+          <Menu
+          open={Boolean(anchorEl)}
+          getContentAnchorEl={null}
+    anchorOrigin={{ vertical: "top", horizontal: "left" }}
+    transformOrigin={{ vertical: "top", horizontal: "left" }}
+        onClose={handleClose}
+      > 
+      <MenuList>
+        <MenuItem onClick={handleClose}>Bieren</MenuItem>
+        <MenuItem onClick={handleClose}>Locaties</MenuItem>
+        <MenuItem onClick={handleClose}>Recent</MenuItem>
+        <MenuItem onClick={handleClose}>Instellingen</MenuItem>
+      </MenuList>
+      </Menu>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" variant="body" style={{ color: '#FFF' }}>Bier App Bar</Link>
           </Typography>
