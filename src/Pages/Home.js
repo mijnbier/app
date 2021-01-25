@@ -3,8 +3,10 @@ import logo from "../pub.svg";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import BeerList from "../Components/BeerList";
+import CategorySelector from "../Components/CategorySelector";
 import database from "../Services/database";
 import { Button } from "@material-ui/core";
+
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -32,12 +34,7 @@ export default function Home() {
         Nieuw Bier toevoegen
       </Button>
       <br></br>
-      <Button
-      variant="contained"
-      color="primary"
-      >
-        Filter Dubbel
-      </Button>
+      <CategorySelector></CategorySelector>
       <BeerList data={data}></BeerList>
     </>
   );
