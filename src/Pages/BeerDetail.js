@@ -32,11 +32,8 @@ export default function BeerDetail() {
   return !beer ? (
     <div>Laden...</div>
   ) : (
-    
         <div>
-      <Link to="/" style={{ color: '#FFF' }}>Home</Link>
-
-      <h3>{beer.brand}</h3>
+      <h2>{beer.brand}</h2>
       <div>Stijl: {beer.style} </div>
       <div>Alcohol: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
