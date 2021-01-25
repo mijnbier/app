@@ -36,6 +36,7 @@ export default function AddBeer() {
   const [style, setStyle] = React.useState("");
   const [alcohol, setAlcohol] = React.useState(null);
   const [price, setPrice] = React.useState("");
+  const [totalprice, setTotalPrice] = React.useState("");
   const [beerExists, setBeerExists] = React.useState(false);
 
   const handleEanChange = async (e) => {
@@ -62,7 +63,9 @@ export default function AddBeer() {
   };
 
   const handlePriceChange = (e) => {
+    const priceBuyed = price*buyed
     setPrice(e.target.value);
+    setTotalPrice(priceBuyed)
   };
 
   const handleStockChange = (e) => {
@@ -90,13 +93,14 @@ export default function AddBeer() {
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
           buyed: firebase.firestore.FieldValue.increment(parseInt(stock)),
-          price: firebase.firestore.FieldValue.increment(parseInt(price)),
+          totalprice: firebase.firestore.FieldValue.increment(parseInt(price)),
+          prices: firebase.firestore.FieldValue.arrayUnion((price)),
           ean: firebase.firestore.FieldValue.arrayUnion(ean)
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style, buyed });
+        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style, buyed, totalprice});
         
     }
 
