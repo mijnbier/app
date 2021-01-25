@@ -14,7 +14,7 @@ export default function BeerListItem(props) {
             <Link to={`/${props.id}`}>{props.brand}</Link><br></br>Brouwerij: {props.brewery}<br></br>
             {props.style}, {props.alcohol}% alc.  </td>
           <td valign="top"> 
-            Voorraad:{" "}{props.stock}x <br></br><br></br><Price value={props.price} /> </td>
+            Voorraad:{" "}{props.stock}x <br></br><br></br> </td>
         </tr>
       </div>
     </li>
