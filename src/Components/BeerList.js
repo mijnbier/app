@@ -13,7 +13,7 @@ function toListItem(item, index) {
 
 export default function BeerList(props) {
   return (
-    <ul>
+    <ul style={{ listStyleType: "none" }}>
       {props.data.filter(isOnStock).map(toListItem)}
     </ul>
   );
