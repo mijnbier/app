@@ -1,5 +1,5 @@
 import React from "react";
-import Price from "./Price";
+//import Price from "./Price";
 import { Link } from "react-router-dom";
 import bottle from './beer-bottle.png';
 
