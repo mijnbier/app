@@ -32,6 +32,7 @@ export default function AddBeer() {
   const [name, setName] = React.useState("");
   const [brewery, setBrewery] = React.useState("");
   const [stock, setStock] = React.useState(1);
+  const [buyed, setBuyed] = React.useState(1);
   const [style, setStyle] = React.useState("");
   const [alcohol, setAlcohol] = React.useState(null);
   const [price, setPrice] = React.useState("");
@@ -66,7 +67,9 @@ export default function AddBeer() {
 
   const handleStockChange = (e) => {
     setStock(e.target.value);
+    setBuyed(e.target.value);
   };
+  
   const handleBreweryChange = (e) => {
     setBrewery(e.target.value);
   };
@@ -86,13 +89,14 @@ export default function AddBeer() {
         .doc(result.docs[0].id)
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
-          ean: firebase.firestore.FieldValue.arrayUnion(ean),
-          price: firebase.firestore.FieldValue.arrayUnion(price)
+          buyed: firebase.firestore.FieldValue.increment(parseInt(stock)),
+          price: firebase.firestore.FieldValue.increment(parseInt(price)),
+          ean: firebase.firestore.FieldValue.arrayUnion(ean)
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style });
+        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style, buyed });
         
     }
 
