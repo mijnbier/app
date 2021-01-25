@@ -38,9 +38,9 @@ export default function BeerDetail() {
 
       <h3>{beer.brand}</h3>
       <div>Stijl: {beer.style} </div>
-      <div>Alc: {beer.alcohol}%</div>
+      <div>Alcohol: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
-      <div>Prijs: &euro; {(beer.totalprice/beer.buyed).toFixed(2)}  ({beer.buyed} stuks, totaal: &euro; {beer.totalprice})  </div>
+      <div>Prijs: &euro; {(beer.totalprice/beer.buyed).toFixed(2)}  ({beer.buyed} stuks, totaal: &euro; {beer.totalprice.toFixed(2)})  </div>
 
       <Button
         variant="contained"
