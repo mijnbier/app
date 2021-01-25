@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <>
       <img src={logo} className="logo" alt="logo" />
-      <p>Mijn Bier App</p>
+      <h1>Mijn Bier App</h1>
       <Button
         variant="contained"
         color="primary"
@@ -30,6 +30,13 @@ export default function Home() {
         to="/add-beer"
       >
         Nieuw Bier toevoegen
+      </Button>
+      <br></br>
+      <Button
+      variant="contained"
+      color="primary"
+      >
+        Filter Dubbel
       </Button>
       <BeerList data={data}></BeerList>
     </>
