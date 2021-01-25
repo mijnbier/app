@@ -1,4 +1,4 @@
-import { useParams, useHistory, Link } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "../App.css";
