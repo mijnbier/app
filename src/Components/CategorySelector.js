@@ -3,9 +3,16 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import beercategories from "./BeerCategory"
 
+const [value, setValue] = React.useState(0);
+const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
 export default  ({ beers }) =>
 
-    <Tabs 
+    <Tabs
+    value={value} 
+    onChange={handleChange}
     variant="scrollable"
     scrollButtons="on">
         <Tab label="Alle" />
