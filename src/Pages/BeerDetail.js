@@ -4,6 +4,7 @@ import Button from "@material-ui/core/Button";
 import "../App.css";
 import database from "../Services/database";
 import AlertDialog from "../Components/AlertDialog";
+import PriceDetail from "../Components/PriceDetail";
 
 export default function BeerDetail() {
   const [beer, setBeer] = useState();
@@ -37,8 +38,7 @@ export default function BeerDetail() {
       <div>Stijl: {beer.style} </div>
       <div>Alcohol: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
-      <div>Prijs: &euro; {(beer.totalprice/beer.buyed).toFixed(2)}  ({beer.buyed} stuks, totaal: &euro; {beer.totalprice.toFixed(2)})  </div>
-
+      <PriceDetail totalprice={beer.totalprice} buyed={beer.buyed}/>
       <Button
         variant="contained"
         color="primary"
