@@ -1,4 +1,4 @@
-export  const beercategories =  [
+export const beercategories =  [
     'Amber',
     'Bock',
     'Blond',
