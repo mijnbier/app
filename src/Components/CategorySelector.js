@@ -6,6 +6,7 @@ import beercategories from "./BeerCategory"
 export default  ({ beers }) =>
 
     <Tabs 
+    value={0}
     variant="scrollable"
     scrollButtons="on">
         <Tab label="Alle" />
