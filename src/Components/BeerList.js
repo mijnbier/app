@@ -1,10 +1,5 @@
 import React from "react";
 import BeerListItem from "./BeerListItem";
-
-function selectedCategory(beer, category) {
-  return beer.style === category
-}
-
 function isOnStock(beer) {
   return beer.stock > 0
 }
