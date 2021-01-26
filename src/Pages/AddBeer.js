@@ -12,6 +12,8 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import logo from "../pub.svg";
 import firebase from "firebase";
 
+import beercategories from "../Components/BeerCategory"
+
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -149,17 +151,10 @@ export default function AddBeer() {
           select
           label="Bierstijl"
         >
-          <MenuItem value={"Barleywine"}>Gerstewijn</MenuItem>
-          <MenuItem value={"Bock"}>Bock</MenuItem>
-          <MenuItem value={"Blond"}>Blond</MenuItem>
-          <MenuItem value={"Dubbel"}>Dubbel</MenuItem>
-          <MenuItem value={"IPA"}>IPA</MenuItem>
-          <MenuItem value={"Porter"}>Porter</MenuItem>
-          <MenuItem value={"Stout"}>Stout</MenuItem>
-          <MenuItem value={"Tripel"}>Tripel</MenuItem>
-          <MenuItem value={"Weizen"}>Weizen</MenuItem>
-          <MenuItem value={"Witbier"}>Witbier</MenuItem>
-          <MenuItem value={"Other"}>Overig</MenuItem>
+          {beercategories.map(category =>  
+            (
+          <MenuItem value={category}> {category} </MenuItem>)
+          )}
         </TextField>
         <TextField
           disabled={beerExists}
