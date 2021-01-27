@@ -12,7 +12,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import logo from "../pub.svg";
 import firebase from "firebase";
 
-import beercategories from "../Components/BeerCategory"
+import beercategories from "../Data/BeerCategories"
 
 const useStyles = makeStyles((theme) => ({
   root: {
