@@ -1,4 +1,4 @@
-This Project uses:
+This project uses:
 
 - react
 - react-router-dom
