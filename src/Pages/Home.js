@@ -35,9 +35,9 @@ export default function Home() {
         Nieuw Bier toevoegen
       </Button>
       <br></br>
-      <CategorySelector></CategorySelector>
+      <CategorySelector setCategory={setCategory}></CategorySelector>
       {console.log(data)}
-      <BeerList data={data} category="Dubbel"></BeerList>
+      <BeerList data={data} category={category}></BeerList>
     </>
   );
 }
