@@ -1,4 +1,4 @@
-export const beercategories =  [
+export default    [
     'Amber',
     'Bock',
     'Blond',
@@ -12,5 +12,5 @@ export const beercategories =  [
     'Gerstewijn',
     'Overig'
 ]
-export default beercategories
+
   

@@ -10,6 +10,7 @@ import { Button } from "@material-ui/core";
 
 export default function Home() {
   const [data, setData] = useState([]);
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
     database.collection("beers").onSnapshot((snapshot) => {
@@ -34,8 +35,8 @@ export default function Home() {
         Nieuw Bier toevoegen
       </Button>
       <br></br>
-      <CategorySelector></CategorySelector>
-      <BeerList data={data} ></BeerList>
+      <CategorySelector setCategory={setCategory}></CategorySelector>
+      <BeerList data={data} category={category}></BeerList>
     </>
   );
 }
