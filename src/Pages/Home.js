@@ -36,7 +36,6 @@ export default function Home() {
       </Button>
       <br></br>
       <CategorySelector setCategory={setCategory}></CategorySelector>
-      {console.log(data)}
       <BeerList data={data} category={category}></BeerList>
     </>
   );
