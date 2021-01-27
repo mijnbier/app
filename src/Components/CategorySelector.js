@@ -6,7 +6,7 @@ import beercategories from "../Data/BeerCategories";
 export default (props) => {
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
-      props.setCategory(beercategories[newValue-1])
+    props.setCategory(beercategories[newValue - 1]);
     setValue(newValue);
   };
 

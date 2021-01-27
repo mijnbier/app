@@ -96,7 +96,7 @@ export default function AddBeer() {
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
           buyed: firebase.firestore.FieldValue.increment(parseInt(stock)),
           totalprice: firebase.firestore.FieldValue.increment(parseInt(price)),
-          prices: firebase.firestore.FieldValue.arrayUnion((price)),
+          price: firebase.firestore.FieldValue.arrayUnion((price)),
           ean: firebase.firestore.FieldValue.arrayUnion(ean)
         });
     } else {
