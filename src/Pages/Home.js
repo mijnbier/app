@@ -37,7 +37,7 @@ export default function Home() {
       <br></br>
       <CategorySelector></CategorySelector>
       {console.log(data)}
-      <BeerList data={data} category = {category}></BeerList>
+      <BeerList data={data} category="Dubbel"></BeerList>
     </>
   );
 }
