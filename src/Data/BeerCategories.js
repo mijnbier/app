@@ -1,12 +1,12 @@
 export default    [
     'Amber',
+    'Tripel',
     'Bock',
     'Blond',
     'Dubbel',
     'IPA',
     'Porter',
     'Stout',
-    'Tripel',
     'Weizen',
     'Witbier',
     'Gerstewijn',
