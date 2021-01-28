@@ -10,6 +10,15 @@ function toListItem(item, index) {
 }
 
 export default function BeerList(props) {
+  if (props.category === undefined) {
+    return (
+      <ul style={{ listStyleType: "none" }}>
+        {props.data
+          .filter(isOnStock)
+          .map(toListItem)}
+      </ul>
+    );
+  }
   return (
     <ul style={{ listStyleType: "none" }}>
       {props.data
