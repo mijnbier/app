@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../pub.svg";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import BeerList from "../Components/BeerList";
@@ -24,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <img src={logo} className="logo" alt="logo" />
+      {/* <img src={logo} className="logo" alt="logo" /> */}
       <h1>Mijn Bier App</h1>
       <Button
         variant="contained"
