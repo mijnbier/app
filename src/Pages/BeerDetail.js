@@ -35,6 +35,7 @@ export default function BeerDetail() {
   ) : (
         <div>
       <h2>{beer.brand}</h2>
+      <div>Brouwerij: {beer.brewery} </div>
       <div>Stijl: {beer.style} </div>
       <div>Alcohol: {beer.alcohol}%</div>
       <div>Voorraad: {stock}</div>
