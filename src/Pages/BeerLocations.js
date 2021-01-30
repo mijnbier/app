@@ -21,9 +21,9 @@ export default function BeerDetail() {
 
   return (
     <div>
-      <h3>Locaties toevoegen</h3> <Button variant="contained" color="primary">
+      <h3>Locaties toevoegen    <Button variant="contained" color="primary">
         Sla op
-      </Button>
+      </Button></h3><br></br>
       
       <FormControl className={classes.root} variant="outlined">
         <TextField
