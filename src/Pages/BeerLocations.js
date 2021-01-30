@@ -21,23 +21,21 @@ export default function BeerDetail() {
 
   return (
     <div>
-      <h3>Locaties toevoegen    <Button variant="contained" color="primary">
-        Sla op
-      </Button></h3><br></br>
-      
+      <h3>
+        Locaties toevoegen{" "}
+        <Button variant="contained" color="primary">
+          Sla op
+        </Button>
+      </h3>
+      <br></br>
+
       <FormControl className={classes.root} variant="outlined">
-        <TextField
-          value="Koelkast"
-          id="outlined-number"
-          label="Locatie 1"
-          autoFocus={true}
-        />
-        <TextField value="Bar" id="outlined-number" label="Locatie 2" />
-        <TextField value="Berging A" id="outlined-number" label="Locatie 3" />
-        <TextField value="Berging B" id="outlined-number" label="Locatie 4" />
-        <TextField value="BeerWulf L" id="outlined-number" label="Locatie 5" />
-        <TextField value="BeerWulf R" id="outlined-number" label="Locatie 6" />
-        <TextField value="Flessenrek" id="outlined-number" label="Locatie 7" />
+        <TextField value="Bar" id="outlined-number" label="Locatie 1" autoFocus={true} />
+        <TextField value="Berging A" id="outlined-number" label="Locatie 2" />
+        <TextField value="Berging B" id="outlined-number" label="Locatie 3" />
+        <TextField value="BeerWulf L" id="outlined-number" label="Locatie 4" />
+        <TextField value="BeerWulf R" id="outlined-number" label="Locatie 5" />
+        <TextField value="Flessenrek" id="outlined-number" label="Locatie 6" />
       </FormControl>
     </div>
   );
