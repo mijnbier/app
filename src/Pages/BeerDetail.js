@@ -5,6 +5,7 @@ import "../App.css";
 import database from "../Services/database";
 import AlertDialog from "../Components/AlertDialog";
 import PriceDetail from "../Components/PriceDetail";
+import AlcoholDetail from "../Components/AlcoholDetail";
 
 export default function BeerDetail() {
   const [beer, setBeer] = useState();
@@ -37,7 +38,7 @@ export default function BeerDetail() {
       <h2>{beer.brand}</h2>
       <div>Brouwerij: {beer.brewery} </div>
       <div>Stijl: {beer.style} </div>
-      <div>Alcohol: {beer.alcohol}%</div>
+      <AlcoholDetail alcohol={beer.alcohol}/>
       <div>Voorraad: {stock}</div>
       <PriceDetail totalprice={beer.totalprice} buyed={beer.buyed}/>
       <Button
