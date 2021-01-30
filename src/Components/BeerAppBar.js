@@ -61,7 +61,8 @@ export default function ButtonAppBar() {
           > 
       
         <MenuItem onClick={handleClose}>Bieren</MenuItem>
-        <MenuItem onClick={handleClose}>Locaties</MenuItem>
+        <MenuItem onClick={handleClose} component="a" href="/beer-locations"
+                  >Locaties</MenuItem>
         <MenuItem onClick={handleClose}>Recent</MenuItem>
         <MenuItem onClick={handleClose}>Instellingen</MenuItem>
       
