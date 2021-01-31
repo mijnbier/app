@@ -3,6 +3,7 @@ import database from "../Services/database";
 import TotalStock from "../Components/TotalStock";
 import UniqueBeers from "../Components/UniqueBeers";
 import MostStyle from "../Components/MostStyle";
+import PopularBeer from "../Components/PopularBeer";
 
 export default function BeerStatistics() {
   const [data, setData] = useState([]);
@@ -27,6 +28,7 @@ export default function BeerStatistics() {
           </tr>
           <tr><td>Aantal unieke bieren: </td><UniqueBeers data={data}></UniqueBeers></tr>
           <tr><td>Nummer 1 Stijl: </td><MostStyle data={data}></MostStyle></tr>
+          <tr><td>Populairste bier: </td><PopularBeer data={data}></PopularBeer></tr>
         </tbody>
       </table>
     </div>
