@@ -24,7 +24,7 @@ export default function BeerDetail() {
     <div>
       <h3>
         Locaties toevoegen{" "}
-        <Button variant="contained" color="primary">
+        <Button disabled={true} variant="contained" color="primary">
           Sla op
         </Button>
       </h3>
