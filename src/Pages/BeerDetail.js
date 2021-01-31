@@ -40,6 +40,7 @@ export default function BeerDetail() {
       <div>Stijl: {beer.style} </div>
       <AlcoholDetail alcohol={beer.alcohol}/>
       <div>Voorraad: {stock}</div>
+      <div>Locatie: {[beer.location]}</div>
       <PriceDetail totalprice={beer.totalprice} buyed={beer.buyed}/>
       <Button
         variant="contained"
