@@ -5,11 +5,10 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import Menu from "@material-ui/core/Menu"
-import MenuItem from "@material-ui/core/MenuItem"
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import logo from "../pub.svg";
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +43,7 @@ export default function ButtonAppBar() {
     <div className={classes.root} style={{ width: "100%" }}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-        <img src={logo} className="logo" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
           <IconButton
             onClick={handleClick}
             edge="start"
@@ -54,22 +53,28 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Menu
-          open={Boolean(anchorEl)}
-          getContentAnchorEl={null}
-          anchorOrigin={{ vertical: "top", horizontal: "left" }}
-          onClose={handleClose}
-          > 
-      
-        <MenuItem onClick={handleClose} component="a" href="/">Bieren</MenuItem>
-        <MenuItem onClick={handleClose} component="a" href="/beer-locations"
-                  >Locaties</MenuItem>
-        <MenuItem onClick={handleClose}>Recent</MenuItem>
-        <MenuItem onClick={handleClose}>Wensenlijst</MenuItem>
-        <MenuItem onClick={handleClose}>Instellingen</MenuItem>
-      
-      </Menu>
+            open={Boolean(anchorEl)}
+            getContentAnchorEl={null}
+            anchorOrigin={{ vertical: "top", horizontal: "left" }}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={handleClose} component="a" href="/">
+              Bieren
+            </MenuItem>
+            <MenuItem onClick={handleClose} component="a" href="/beer-locations">
+              Locaties
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              Recent</MenuItem>
+            <MenuItem onClick={handleClose}>
+              Wensenlijst</MenuItem>
+            <MenuItem onClick={handleClose}>
+              Instellingen</MenuItem>
+          </Menu>
           <Typography variant="h6" className={classes.title}>
-            <Link to="/" variant="body" style={{ color: '#FFF' }}>Bier App Bar</Link>
+            <Link to="/" variant="body" style={{ color: "#FFF" }}>
+              Bier App Bar
+            </Link>
           </Typography>
         </Toolbar>
       </AppBar>
