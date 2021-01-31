@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import database from "../Services/database";
 import TotalStock from "../Components/TotalStock";
+import UniqueBeers from "../Components/UniqueBeers";
 
 export default function BeerStatistics() {
   const [data, setData] = useState([]);
@@ -23,8 +24,8 @@ export default function BeerStatistics() {
           <tr>
             <td>Totaal aantal bier op voorraad:</td><TotalStock data={data}></TotalStock>
           </tr>
-          <tr>Aantal verschillende bieren: </tr>
-          <tr>Nummer 1 Stijl: </tr>
+          <tr><td>Aantal unieke bieren: </td><UniqueBeers data={data}></UniqueBeers></tr>
+          <tr><td>Nummer 1 Stijl: </td></tr>
         </tbody>
       </table>
     </div>
