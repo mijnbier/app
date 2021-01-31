@@ -6,12 +6,12 @@ function isOnStock(beer) {
 
 export default function TotalStock(props) {
   return (
-    <div>
+    <td>
       {props.data
         .filter(isOnStock)
         .reduce(function (prev, current) {
         return prev + +current.stock;
       }, 0)}
-    </div>
+    </td>
   );
 }
