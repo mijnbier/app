@@ -11,7 +11,7 @@ import "firebase/firestore";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import logo from "../pub.svg";
 import firebase from "firebase";
-
+import storelocations from "../Data/StoreLocations"
 import beercategories from "../Data/BeerCategories"
 
 const useStyles = makeStyles((theme) => ({
@@ -37,6 +37,7 @@ export default function AddBeer() {
   const [buyed, setBuyed] = React.useState(1);
   const [style, setStyle] = React.useState("");
   const [alcohol, setAlcohol] = React.useState(null);
+  const [location, setLocation] = React.useState("");
   const [price, setPrice] = React.useState("");
   const [totalprice, setTotalPrice] = React.useState("");
   const [beerExists, setBeerExists] = React.useState(false);
@@ -73,6 +74,9 @@ export default function AddBeer() {
   const handleStockChange = (e) => {
     setStock(e.target.value);
     setBuyed(e.target.value);
+  };
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
   };
   
   const handleBreweryChange = (e) => {
@@ -172,6 +176,18 @@ export default function AddBeer() {
           label="Aantal stuks"
           type="number"
         />
+        <TextField
+          onChange={handleLocationChange}
+          value={location}
+          id="storelocation"
+          select
+          label="Locatie"
+        >
+        {storelocations.map(location =>  
+            (
+          <MenuItem value={location}> {location} </MenuItem>)
+          )}
+          </TextField>
         <TextField
           onChange={handlePriceChange}
           value={price}
