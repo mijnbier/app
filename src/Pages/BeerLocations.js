@@ -3,6 +3,7 @@ import FormControl from "@material-ui/core/FormControl";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import storelocations from "../Data/StoreLocations"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,14 +29,11 @@ export default function BeerDetail() {
         </Button>
       </h3>
       <br></br>
-
       <FormControl className={classes.root} variant="outlined">
-        <TextField value="Bar" id="outlined-number" label="Locatie 1" autoFocus={true} />
-        <TextField value="Berging A" id="outlined-number" label="Locatie 2" />
-        <TextField value="Berging B" id="outlined-number" label="Locatie 3" />
-        <TextField value="BeerWulf L" id="outlined-number" label="Locatie 4" />
-        <TextField value="BeerWulf R" id="outlined-number" label="Locatie 5" />
-        <TextField value="Flessenrek" id="outlined-number" label="Locatie 6" />
+      {storelocations.map(location =>  
+            (
+          <TextField value={location}> {location} </TextField>)
+          )}
       </FormControl>
     </div>
   );
