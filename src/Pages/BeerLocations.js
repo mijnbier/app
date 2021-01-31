@@ -32,7 +32,7 @@ export default function BeerDetail() {
       <FormControl className={classes.root} variant="outlined">
       {storelocations.map(location =>  
             (
-          <TextField value={location}> {location} </TextField>)
+          <TextField key={location} value={location}> {location} </TextField>)
           )}
       </FormControl>
     </div>
