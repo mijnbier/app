@@ -101,12 +101,13 @@ export default function AddBeer() {
           buyed: firebase.firestore.FieldValue.increment(parseInt(stock)),
           totalprice: firebase.firestore.FieldValue.increment(parseInt(price)),
           price: firebase.firestore.FieldValue.arrayUnion((price)),
-          ean: firebase.firestore.FieldValue.arrayUnion(ean)
+          ean: firebase.firestore.FieldValue.arrayUnion(ean),
+          location: firebase.firestore.FieldValue.arrayUnion(location)
         });
     } else {
       db.collection("beers")
         .doc()
-        .set({ ean: [ean],  brand: name, price: [price], stock, brewery, alcohol, style, buyed, totalprice});
+        .set({ ean: [ean],  brand: name, price: [price], stock, location: [location], brewery, alcohol, style, buyed, totalprice});
         
     }
 
