@@ -16,9 +16,18 @@ async function loginUser(credentials) {
 export default function Login({setToken}) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
+
+    const handleSubmit = async e => {
+        e.preventDefault();
+        const token = await loginUser({
+          username,
+          password
+        });
+        setToken(token);
+      }
   return (
     <div className="login-wrapper">
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           User: <input type="text" onChange={e => setUserName(e.target.value)}/>
         </label>
