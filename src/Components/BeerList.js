@@ -1,5 +1,7 @@
 import React from "react";
 import BeerListItem from "./BeerListItem";
+import SwipeableViews from "react-swipeable-views";
+import beercategories from "../Data/BeerCategories";
 
 function isOnStock(beer) {
   return beer.stock > 0;
@@ -10,21 +12,32 @@ function toListItem(item, index) {
 }
 
 export default function BeerList(props) {
-  if (props.category === undefined) {
-    return (
-      <ul style={{ listStyleType: "none" }}>
+  let index = 0;
+  if (props.category !== undefined) {
+    index = beercategories.indexOf(props.category) + 1;
+  }
+
+  function handleChangeIndex(index) {
+    props.setCategory(beercategories[index - 1]);
+  }
+
+  return (
+    <SwipeableViews index={index} onChangeIndex={handleChangeIndex}>
+      
+        <ul style={{ listStyleType: "none" }}>
+          {props.data.filter(isOnStock).map(toListItem)}
+        </ul>
+       
+        {beercategories.map((category) => (
+        <ul style={{ listStyleType: "none" }}>
         {props.data
           .filter(isOnStock)
+          .filter((beer) => beer.style === category)
           .map(toListItem)}
       </ul>
-    );
-  }
-  return (
-    <ul style={{ listStyleType: "none" }}>
-      {props.data
-        .filter(isOnStock)
-        .filter((beer) => beer.style === props.category)
-        .map(toListItem)}
-    </ul>
+      ))}
+
+      
+    </SwipeableViews>
   );
 }
