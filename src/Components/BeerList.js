@@ -19,10 +19,8 @@ export default function BeerList(props) {
 
   function handleChangeIndex(index) {
     if (index === 0) {
-      console.log("0");
       props.setCategory(undefined);
     } else {
-      console.log(beercategories[index - 1]);
       props.setCategory(beercategories[index - 1]);
     }
   }
