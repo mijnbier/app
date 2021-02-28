@@ -33,18 +33,17 @@ export default function BeerList(props) {
         <ul style={{ listStyleType: "none" }}>
           {props.data.filter(isOnStock).map(toListItem)}
         </ul>
+       
+        {beercategories.map((category) => (
         <ul style={{ listStyleType: "none" }}>
-          {props.data
-            .filter(isOnStock)
-            .filter((beer) => beer.style === beercategories[0])
-            .map(toListItem)}
-        </ul>
-        <ul style={{ listStyleType: "none" }}>
-          {props.data
-            .filter(isOnStock)
-            .filter((beer) => beer.style === beercategories[1])
-            .map(toListItem)}
-        </ul>
+        {props.data
+          .filter(isOnStock)
+          .filter((beer) => beer.style === category)
+          .map(toListItem)}
+      </ul>
+      ))}
+
+      
     </SwipeableViews>
   );
 }
