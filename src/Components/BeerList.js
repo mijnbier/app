@@ -29,27 +29,22 @@ export default function BeerList(props) {
 
   return (
     <SwipeableViews index={index} onChangeIndex={handleChangeIndex}>
-      <div>
+      
         <ul style={{ listStyleType: "none" }}>
           {props.data.filter(isOnStock).map(toListItem)}
         </ul>
-      </div>
-      <div>
         <ul style={{ listStyleType: "none" }}>
           {props.data
             .filter(isOnStock)
             .filter((beer) => beer.style === beercategories[0])
             .map(toListItem)}
         </ul>
-      </div>
-      <div>
         <ul style={{ listStyleType: "none" }}>
           {props.data
             .filter(isOnStock)
             .filter((beer) => beer.style === beercategories[1])
             .map(toListItem)}
         </ul>
-      </div>
     </SwipeableViews>
   );
 }
