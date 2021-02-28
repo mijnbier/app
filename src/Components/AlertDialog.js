@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from "react";
 import { Component, Fragment } from "react";
 import Button from '@material-ui/core/Button';
