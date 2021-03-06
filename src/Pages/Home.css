@@ -8,6 +8,14 @@
     animation: App-logo-spin infinite 4s linear;
   }
 }
+.fab {
+  margin: 0px;
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+};
 
 @keyframes App-logo-spin {
   0% {

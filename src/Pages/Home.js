@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 import BeerList from "../Components/BeerList";
 import CategorySelector from "../Components/CategorySelector";
 import database from "../Services/database";
@@ -10,6 +12,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState();
 
+  
   useEffect(() => {
     database.collection("beers").onSnapshot((snapshot) => {
       const beers = snapshot.docs.map((doc) => ({
@@ -42,6 +45,10 @@ export default function Home() {
         data={data}
         setCategory={setCategory}
       ></BeerList>
+      <Fab component={Link}
+        to="/add-beer" color="primary" aria-label="add" className="fab">
+        <AddIcon />
+      </Fab>
     </>
   );
 }
