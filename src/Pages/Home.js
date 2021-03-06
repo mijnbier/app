@@ -35,15 +35,15 @@ export default function Home() {
   return (
     <>
       {/* <img src={logo} className="logo" alt="logo" /> */}
-      <h1>Mijn Bier App</h1>
-      <Button
+      {/* <h1>Mijn Bier App</h1> */}
+      {/* <Button
         variant="contained"
         color="primary"
         component={Link}
         to="/add-beer"
       >
         Nieuw Bier toevoegen
-      </Button>
+      </Button> */}
       <br></br>
       <CategorySelector
         category={category}
