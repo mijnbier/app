@@ -76,7 +76,7 @@ export default function ButtonAppBar() {
           </Menu>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" variant="body" style={{ color: "#FFF" }}>
-              Bier App Bar
+              mijn Bier app
             </Link>
           </Typography>
         </Toolbar>

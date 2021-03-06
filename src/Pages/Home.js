@@ -6,7 +6,6 @@ import AddIcon from '@material-ui/icons/Add';
 import BeerList from "../Components/BeerList";
 import CategorySelector from "../Components/CategorySelector";
 import database from "../Services/database";
-import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -35,15 +34,6 @@ export default function Home() {
   return (
     <>
       {/* <img src={logo} className="logo" alt="logo" /> */}
-      {/* <h1>Mijn Bier App</h1> */}
-      {/* <Button
-        variant="contained"
-        color="primary"
-        component={Link}
-        to="/add-beer"
-      >
-        Nieuw Bier toevoegen
-      </Button> */}
       <br></br>
       <CategorySelector
         category={category}
