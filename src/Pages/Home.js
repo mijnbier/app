@@ -7,11 +7,20 @@ import BeerList from "../Components/BeerList";
 import CategorySelector from "../Components/CategorySelector";
 import database from "../Services/database";
 import { Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
+  },
+}));
 
 export default function Home() {
   const [data, setData] = useState([]);
   const [category, setCategory] = useState();
-
+  const classes = useStyles();
   
   useEffect(() => {
     database.collection("beers").onSnapshot((snapshot) => {
@@ -46,7 +55,7 @@ export default function Home() {
         setCategory={setCategory}
       ></BeerList>
       <Fab component={Link}
-        to="/add-beer" color="primary" aria-label="add" className="fab">
+        to="/add-beer" color="primary" aria-label="add" className={classes.fab}>
         <AddIcon />
       </Fab>
     </>
