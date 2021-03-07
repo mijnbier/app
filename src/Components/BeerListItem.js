@@ -12,9 +12,9 @@ export default function BeerListItem(props) {
           <td height="30px">
             <img src={bottle} alt="Beer Bottle" height="60" background="transparent"></img></td>
           <td valign="top" > 
-            <Link to={`/${props.id}`}>{props.brand}</Link><br></br>Brouwerij: {props.brewery}<br></br>
-            Stijl: {props.style}
-            <AlcoholDetail alcohol={props.alcohol}/> </td>
+            <tr><Link to={`/${props.id}`}>{props.brand}</Link></tr>
+            <tr>Brouwerij: {props.brewery}</tr>
+            <tr>Stijl: {props.style}, <AlcoholDetail alcohol={props.alcohol}/></tr></td>
           <td valign="top"> 
             Voorraad:{" "}{props.stock}x <br></br><br></br> </td>
         </tr>

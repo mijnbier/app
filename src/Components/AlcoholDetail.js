@@ -5,15 +5,15 @@ export default function AlcoholDetail(props) {
   
   if (props.alcohol == null) {
     return (
-      <div>
-        Alcohol: - %
-      </div>
+      <span>
+         - % Alc.
+      </span>
     );
   }
 
   return (
-    <div>
+    <span>
       {Number(alcohol).toFixed(1)}% Alc.
-    </div>
+    </span>
   );
 }
