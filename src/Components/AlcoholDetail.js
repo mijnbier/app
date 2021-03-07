@@ -13,7 +13,7 @@ export default function AlcoholDetail(props) {
 
   return (
     <div>
-      Alcohol: {Number(alcohol).toFixed(1)} %
+      {Number(alcohol).toFixed(1)}% Alc.
     </div>
   );
 }
