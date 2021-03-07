@@ -99,7 +99,7 @@ export default function AddBeer() {
         .update({
           stock: firebase.firestore.FieldValue.increment(parseInt(stock)),
           buyed: firebase.firestore.FieldValue.increment(parseInt(stock)),
-          totalprice: firebase.firestore.FieldValue.increment(parseInt(totalprice)),
+          totalprice: firebase.firestore.FieldValue.increment(parseFloat(totalprice)),
           price: firebase.firestore.FieldValue.arrayUnion((price)),
           ean: firebase.firestore.FieldValue.arrayUnion(ean),
           location: firebase.firestore.FieldValue.arrayUnion(location)
