@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -9,6 +9,9 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import logo from "../pub.svg";
+import ExitToApp from '@material-ui/icons/ExitToApp';
+import { logIn, logOut } from "../Services/auth";
+import { UserContext } from "../Contexts/UserProvider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ButtonAppBar() {
+  const user = useContext(UserContext);
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -73,6 +77,14 @@ export default function ButtonAppBar() {
               Wensenlijst</MenuItem>
             <MenuItem onClick={handleClose}>
               Instellingen</MenuItem>
+
+            {user ? (
+              <MenuItem onClick={logOut}>
+                {user.displayName} - Log out <ExitToApp/> 
+              </MenuItem>
+            ) : (
+              <MenuItem onClick={logIn}>Log in</MenuItem>
+            )}
           </Menu>
           <Typography variant="h6" className={classes.title}>
             <Link to="/" variant="body" style={{ color: "#FFF" }}>
