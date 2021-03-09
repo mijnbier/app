@@ -7,6 +7,7 @@ import BeerStatistics from "./Pages/BeerStatistics";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import BeerAppBar from "./Components/BeerAppBar";
+import UserProvider from "./Contexts/UserProvider";
 
 const theme = createMuiTheme({
   props: {
@@ -23,8 +24,9 @@ const theme = createMuiTheme({
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Router>
+    <UserProvider>
+      <ThemeProvider theme={theme}>
+        <Router>
           <BeerAppBar></BeerAppBar>
           <Switch>
             <Route exact path="/">
@@ -35,7 +37,8 @@ export default function App() {
             <Route path="/beer-statistics" children={<BeerStatistics/>} />
             <Route path="/:id" children={<BeerDetail />} />
           </Switch>
-      </Router>
-    </ThemeProvider>
+        </Router>
+      </ThemeProvider>
+    </UserProvider>
   );
 }
