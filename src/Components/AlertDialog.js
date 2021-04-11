@@ -1,64 +1,56 @@
 /* eslint-disable import/no-anonymous-default-export */
 import React from "react";
-import { Component, Fragment } from "react";
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import { Fragment } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import database from "../Services/database";
 
-export default class extends Component {
-    state = {
-        open: false,
-        delete: false
-    }
+export default function AlertDialog() {
+  const [open, setOpen] = React.useState(false);
+  const history = useHistory();
+  const { id } = useParams();
 
-    handleToggle = () =>{
-        this.setState({
-            open: !this.state.open
-        })
-    }
-    handleDelete = () => {
-        this.setState({
-            delete: !this.state.delete
-        })
-        console.log(this.state.delete)
-    }
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-    render() {
-        const { open} = this.state
-        
-        return <Fragment>
-            <Button 
-            color="primary"
-            variant="contained"
-            onClick={this.handleToggle}>
-                Dialog 
-                </Button>
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-            <Dialog 
-                open={open} 
-                onClose={this.handleToggle} 
-                >
+  async function deleteBeer() {
+    await database.collection("beers").doc(id).delete();
+    setOpen(false);
+    history.push("/");
+  }
 
+  return (
+    <Fragment>
+      <Button color="primary" variant="contained" onClick={handleClickOpen}>
+        Delete
+      </Button>
+
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="form-dialog-title">Delete Beer?</DialogTitle>
         <DialogContent>
-        <DialogContentText>
+          <DialogContentText>
             Are you sure you want to delete this beer?
-            </DialogContentText>         
+          </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button  onClick={this.handleToggle} color="primary">
+          <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button  onClick ={this.handleDelete} color="primary" variant="contained">
+          <Button onClick={deleteBeer} color="primary" variant="contained">
             Delete
           </Button>
         </DialogActions>
       </Dialog>
-</Fragment>
-
-
-    }
-} 
+    </Fragment>
+  );
+}

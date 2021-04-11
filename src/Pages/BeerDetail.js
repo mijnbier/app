@@ -63,13 +63,13 @@ export default function BeerDetail() {
       >
         Edit
       </Button>
-      <Button
+      {/* <Button
         variant="contained"
         color="primary"
         onClick={deleteBeer}
       >
         Delete
-      </Button><br></br>
+      </Button><br></br> */}
       
       <AlertDialog></AlertDialog>
       </div>
