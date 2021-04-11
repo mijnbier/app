@@ -13,6 +13,8 @@ import logo from "../pub.svg";
 import firebase from "firebase";
 import storelocations from "../Data/StoreLocations"
 import beercategories from "../Data/BeerCategories"
+import useSnackBars from "../Hooks/SnackBar";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,6 +43,7 @@ export default function AddBeer() {
   const [price, setPrice] = React.useState("");
   const [totalprice, setTotalPrice] = React.useState("");
   const [beerExists, setBeerExists] = React.useState(false);
+  const { addAlert } = useSnackBars();
 
   const handleEanChange = async (e) => {
     setEan(e.target.value);
@@ -104,10 +107,13 @@ export default function AddBeer() {
           ean: firebase.firestore.FieldValue.arrayUnion(ean),
           location: firebase.firestore.FieldValue.arrayUnion(location)
         });
+        addAlert("Proost, nieuwe voorraad toegevoegd");
+
     } else {
       db.collection("beers")
         .doc()
         .set({ ean: [ean],  brand: name, price: [price], stock, location: [location], brewery, alcohol, style, buyed, totalprice});
+        addAlert("Proost, nieuw bier toegevoegd");
         
     }
 
