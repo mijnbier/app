@@ -9,7 +9,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { Link } from "react-router-dom";
 import logo from "../pub.svg";
-import ExitToApp from '@material-ui/icons/ExitToApp';
+import ExitToApp from "@material-ui/icons/ExitToApp";
 import { logIn, logOut } from "../Services/auth";
 import { UserContext } from "../Contexts/UserProvider";
 
@@ -62,25 +62,22 @@ export default function ButtonAppBar() {
             anchorOrigin={{ vertical: "top", horizontal: "left" }}
             onClose={handleClose}
           >
-            <MenuItem onClick={handleClose} component="a" href="/">
-              Bieren
-            </MenuItem>
-            <MenuItem onClick={handleClose} component="a" href="/beer-locations">
-              Locaties
-            </MenuItem> 
-            <MenuItem onClick={handleClose} component="a" href="/beer-statistics">
-              Statistieken
+            <MenuItem onClick={handleClose}>
+              <Link to="/">Bieren</Link>
             </MenuItem>
             <MenuItem onClick={handleClose}>
-              Recent</MenuItem>
+              <Link to="/beer-locations">Locaties</Link>
+            </MenuItem>
             <MenuItem onClick={handleClose}>
-              Wensenlijst</MenuItem>
-            <MenuItem onClick={handleClose}>
-              Instellingen</MenuItem>
+              <Link to="/beer-statistics">Statistieken</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>Recent</MenuItem>
+            <MenuItem onClick={handleClose}>Wensenlijst</MenuItem>
+            <MenuItem onClick={handleClose}>Instellingen</MenuItem>
 
             {user ? (
               <MenuItem onClick={logOut}>
-                {user.displayName} - Log out <ExitToApp/> 
+                {user.displayName} - Log out <ExitToApp />
               </MenuItem>
             ) : (
               <MenuItem onClick={logIn}>Log in</MenuItem>
