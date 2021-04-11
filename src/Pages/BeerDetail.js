@@ -1,4 +1,4 @@
-import { useParams, useHistory} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "../App.css";
@@ -22,7 +22,6 @@ export default function BeerDetail() {
       });
   }, [id]);
 
- 
   async function updateStock(newValue) {
     await database.collection("beers").doc(id).update({ stock: newValue });
   }
@@ -30,14 +29,14 @@ export default function BeerDetail() {
   return !beer ? (
     <div>Laden...</div>
   ) : (
-        <div>
+    <div>
       <h2>{beer.brand}</h2>
       <div>Brouwerij: {beer.brewery} </div>
       <div>Stijl: {beer.style} </div>
-      <AlcoholDetail alcohol={beer.alcohol}/>
+      <AlcoholDetail alcohol={beer.alcohol} />
       <div>Voorraad: {stock}</div>
       <div>Locatie: {[beer.location]}</div>
-      <PriceDetail totalprice={beer.totalprice} buyed={beer.buyed}/>
+      <PriceDetail totalprice={beer.totalprice} buyed={beer.buyed} />
       <Button
         variant="contained"
         color="primary"
@@ -46,22 +45,18 @@ export default function BeerDetail() {
       >
         Drink
       </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={async () => await updateStock(stock + 1)}
-        >
-          Toevoegen
-      </Button><br></br>
       <Button
         variant="contained"
         color="primary"
+        onClick={async () => await updateStock(stock + 1)}
       >
+        Toevoegen
+      </Button>
+      <br></br>
+      <Button variant="contained" color="primary">
         Edit
       </Button>
-    
-      
       <AlertDialog></AlertDialog>
-      </div>
-    );
+    </div>
+  );
 }
