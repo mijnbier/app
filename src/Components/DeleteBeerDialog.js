@@ -9,11 +9,13 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import database from "../Services/database";
+import useSnackBars from "../Hooks/SnackBar";
 
 export default function AlertDialog() {
   const [open, setOpen] = React.useState(false);
   const history = useHistory();
   const { id } = useParams();
+  const { addAlert } = useSnackBars();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -26,6 +28,7 @@ export default function AlertDialog() {
   async function deleteBeer() {
     await database.collection("beers").doc(id).delete();
     setOpen(false);
+    addAlert("Bier succesvol verwijderd");
     history.push("/");
   }
 

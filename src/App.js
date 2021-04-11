@@ -8,37 +8,40 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import BeerAppBar from "./Components/BeerAppBar";
 import UserProvider from "./Contexts/UserProvider";
+import { SnackBarProvider } from "./Contexts/SnackBarProvider";
 
 const theme = createMuiTheme({
   props: {
     MuiTextField: {
-      variant: "outlined"
+      variant: "outlined",
     },
   },
-  palette:{
-    secondary:{
-      main: "#006400"
-    }
-  }
+  palette: {
+    secondary: {
+      main: "#006400",
+    },
+  },
 });
 
 export default function App() {
   return (
-    <UserProvider>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <BeerAppBar></BeerAppBar>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/add-beer" children={<AddBeer />} />
-            <Route path="/beer-locations" children={<BeerLocations/>} />
-            <Route path="/beer-statistics" children={<BeerStatistics/>} />
-            <Route path="/:id" children={<BeerDetail />} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </UserProvider>
+    <SnackBarProvider>
+      <UserProvider>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <BeerAppBar></BeerAppBar>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/add-beer" children={<AddBeer />} />
+              <Route path="/beer-locations" children={<BeerLocations />} />
+              <Route path="/beer-statistics" children={<BeerStatistics />} />
+              <Route path="/:id" children={<BeerDetail />} />
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </UserProvider>
+    </SnackBarProvider>
   );
 }
