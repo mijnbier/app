@@ -1,9 +1,9 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import "../App.css";
 import database from "../Services/database";
-import AlertDialog from "../Components/AlertDialog";
+import DeleteBeerDialog from "../Components/DeleteBeerDialog";
 import PriceDetail from "../Components/PriceDetail";
 import AlcoholDetail from "../Components/AlcoholDetail";
 
@@ -55,7 +55,7 @@ export default function BeerDetail() {
       <Button variant="contained" color="primary">
         Edit
       </Button>
-      <AlertDialog></AlertDialog>
+      <DeleteBeerDialog></DeleteBeerDialog>
     </div>
   );
 }
