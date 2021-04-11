@@ -22,11 +22,7 @@ export default function BeerDetail() {
       });
   }, [id]);
 
-  async function deleteBeer() {
-    await database.collection("beers").doc(id).delete()
-    history.push("/");
-  }
-
+ 
   async function updateStock(newValue) {
     await database.collection("beers").doc(id).update({ stock: newValue });
   }
@@ -63,13 +59,7 @@ export default function BeerDetail() {
       >
         Edit
       </Button>
-      {/* <Button
-        variant="contained"
-        color="primary"
-        onClick={deleteBeer}
-      >
-        Delete
-      </Button><br></br> */}
+    
       
       <AlertDialog></AlertDialog>
       </div>
