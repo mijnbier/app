@@ -11,7 +11,6 @@ export default function BeerDetail() {
   const [beer, setBeer] = useState();
   const [stock, setStock] = useState(0);
   const { id } = useParams();
-  const history = useHistory();
   useEffect(() => {
     database
       .collection("beers")
