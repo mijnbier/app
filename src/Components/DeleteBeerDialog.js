@@ -11,7 +11,7 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import database from "../Services/database";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
-
+import useSnackBars from "../SnackBarConsumer";
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -19,8 +19,9 @@ function Alert(props) {
 export default function AlertDialog() {
   const [open, setOpen] = React.useState(false);
   const [openSnackbar, setOpenSnackbar] = React.useState(false);
-  //const history = useHistory();
+  const history = useHistory();
   const { id } = useParams();
+  const { addAlert } = useSnackBars();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -37,8 +38,11 @@ export default function AlertDialog() {
   async function deleteBeer() {
     //await database.collection("beers").doc(id).delete();
     setOpen(false);
-    setOpenSnackbar(true);
-    //history.push("/");
+    //setOpenSnackbar(true);
+
+    addAlert("Your profile is updated!");
+
+    history.push("/");
   }
 
   return (
