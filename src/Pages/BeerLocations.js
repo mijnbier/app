@@ -1,40 +1,31 @@
 import React from "react";
-import FormControl from "@material-ui/core/FormControl";
-import TextField from "@material-ui/core/TextField";
+import LocationSelector from "../Components/LocationSelector";
+import Fab from '@material-ui/core/Fab';
+import Autorenew from '@material-ui/icons/Autorenew';
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import storelocations from "../Data/StoreLocations"
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      Width: 200,
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "green",
-    },
+
+const useStyles = makeStyles(theme => ({
+  fab: {
+    position: 'fixed',
+    bottom: theme.spacing(2),
+    right: theme.spacing(2),
   },
 }));
 
-export default function BeerDetail() {
+export default function BeerLocations() {
   const classes = useStyles();
 
   return (
     <div>
       <h3>
-        Locaties toevoegen{" "}
-        <Button disabled={true} variant="contained" color="primary">
-          Sla op
-        </Button>
+        Bier per Locatie
+        
       </h3>
-      <br></br>
-      <FormControl className={classes.root} variant="outlined">
-      {storelocations.map(location =>  
-            (
-          <TextField key={location} value={location}> {location} </TextField>)
-          )}
-      </FormControl>
+      <LocationSelector> </LocationSelector>
+      <Fab className={classes.fab}>
+        <Autorenew />
+      </Fab>
     </div>
   );
 }
