@@ -4,6 +4,7 @@ import BeerDetail from "./Pages/BeerDetail";
 import AddBeer from "./Pages/AddBeer";
 import BeerLocations from "./Pages/BeerLocations";
 import BeerStatistics from "./Pages/BeerStatistics";
+import Settings from "./Pages/Settings";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import BeerAppBar from "./Components/BeerAppBar";
@@ -37,6 +38,7 @@ export default function App() {
               <Route path="/add-beer" children={<AddBeer />} />
               <Route path="/beer-locations" children={<BeerLocations />} />
               <Route path="/beer-statistics" children={<BeerStatistics />} />
+              <Route path="/settings" children={<Settings />} />
               <Route path="/:id" children={<BeerDetail />} />
             </Switch>
           </Router>

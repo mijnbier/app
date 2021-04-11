@@ -73,7 +73,9 @@ export default function ButtonAppBar() {
             </MenuItem>
             <MenuItem onClick={handleClose}>Recent</MenuItem>
             <MenuItem onClick={handleClose}>Wensenlijst</MenuItem>
-            <MenuItem onClick={handleClose}>Instellingen</MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link to="/settings">Instellingen</Link>
+            </MenuItem>
 
             {user ? (
               <MenuItem onClick={logOut}>
