@@ -25,23 +25,23 @@ const theme = createMuiTheme({
 
 export default function App() {
   return (
-     <SnackBarProvider>
-    <UserProvider>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <BeerAppBar></BeerAppBar>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/add-beer" children={<AddBeer />} />
-            <Route path="/beer-locations" children={<BeerLocations />} />
-            <Route path="/beer-statistics" children={<BeerStatistics />} />
-            <Route path="/:id" children={<BeerDetail />} />
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </UserProvider>
-     </SnackBarProvider>
+    <SnackBarProvider>
+      <UserProvider>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <BeerAppBar></BeerAppBar>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/add-beer" children={<AddBeer />} />
+              <Route path="/beer-locations" children={<BeerLocations />} />
+              <Route path="/beer-statistics" children={<BeerStatistics />} />
+              <Route path="/:id" children={<BeerDetail />} />
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </UserProvider>
+    </SnackBarProvider>
   );
 }
